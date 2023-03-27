@@ -21,148 +21,177 @@ You can use bullet points and lists, or full paragraphs, or a combo, whichever i
 ### Catalog (Milestone 1)
 > What will your catalog website be about? (1 sentence)
 
-TODO: catalog topic
-
+The catalog will be about Cornellians, similar to project 2, but with an expanded focus.
 
 ### _Consumer_ Audience (Milestone 1)
 > Briefly explain your site's _consumer_ audience. Your audience should be specific, but not arbitrarily specific. (1 sentence)
 > Justify why this audience is a **cohesive** group. (1-2 sentences)
 
-TODO: site audience
+The audience will be all Cornellians, but with a focus on the Cornellians who are interested in an exclusive social media platform to meet similar cornellians.
 
-TODO: why is this a _cohesive_ audience?
-
+It is cohesive because it is specfically the Cornell student body.
 
 ### _Consumer_ Audience Goals (Milestone 1)
 > Document your _consumer_ audience's goals for using this catalog website.
 > List each goal below. There is no specific number of goals required for this, but you need enough to do the job (Hint: It's more than 1. But probably not more than 3.)
 > **Hint:** Users will be able to view all entries in the catalog and insert new entries into the catalog. The audience's goals should probably relate to these activities.
 
-Goal 1: TODO: brief title
+Goal 1: View the database
 
 - **Design Ideas and Choices** _How will you meet those goals in your design?_
-  - TODO: design ideas (1-2 sentences)
+  - The home page will recent posts by users
+  - It will not require a login
 - **Rationale & Additional Notes** _Justify your decisions; additional notes._
-  - TODO: rationale  (1-2 sentences)
+  - This allows visitors to see the site, and choose if they want to add themselves to the database
 
-Goal 2: TODO: brief title
+Goal 2: View the user database
 
 - **Design Ideas and Choices** _How will you meet those goals in your design?_
-  - TODO: design ideas (1-2 sentences)
+  - The database can be searched by users
+  - Consumers can select only certain indviuals to view, by year, major, etc.
+  - They may also sort
 - **Rationale & Additional Notes** _Justify your decisions; additional notes._
-  - TODO: rationale (1-2 sentences)
+  - This allows them to find speficic people they are interested in learning more about.
 
-Goal 3: TODO: brief title
+Goal 3: View details page about an individual
 
-TODO: design ideas and rationale
-
-
-TODO: add as many goals as needed
+- **Design Ideas and Choices** _How will you meet those goals in your design?_
+  - The details page will show all the information about an individual
+  - It will be accessible from the home page
+  - It will require a user to login, however
+- **Rationale & Additional Notes** _Justify your decisions; additional notes._
+  - This allows consumers to learn more about an individual, and decide if they want to contact them.
+  - It also maintains privacy for the user hwo is being viewed.
 
 
 ### _Consumer_ Audience Device (Milestone 1)
 > How will your _consumer_ audience access this website? From a narrow (phone) or wide (laptop) device?
 > Justify your decision. (1 sentence)
 
-TODO: audience device
+The audience will likely use a narrow device, such as a phone, to access the site.
 
-TODO: audience device justification
-
+This is because it is a social media platform, and people are more likely to use their phones to access social media.
 
 ### _Consumer_ Persona (Milestone 1)
 > Use the goals you identified above to develop a persona of your site's _consumer_ audience.
 > Your persona must have a name and a face. The face can be a photo of a face or a drawing, etc.
 
-TODO: persona's face
+![Alt text](consumer_ezra_cornel.jpg "Ezra Cornell (absolutely not a real person, absolutely no relation to our esteemed founder)")
 
-TODO: persona name
+*Ezra Cornell (absolutely not a real person, absolutely no relation to our esteemed founder)*
 
 **Factors that Influence Behavior:**
 
-TODO: summary of the persona's factors that influence their behavior (1-2 bullet points)
+- Ezra Cornell, a woman, and having no relation to the founder of Cornell, is a Cornell student who is interested in meeting other Cornell students.
+- Her parents named her Ezra, after their favorite school founder, Ezra Cornell.
+- She resents her own name and often goes by "Ezy," which is a nickname she made up for herself.
+- Ezra is now a freshman at Cornell.
 
 **Goals:**
-
-TODO: summary of persona's goals (1-2 bullet points)
+- Ezra is looking for a way to meet other Cornell students, as she is not a part of any clubs or organizations.
+- She wants to stalk a hot guy she met a party last weekend, but she doesn't want to be creepy about it.
+- She also wants to find a way to meet other Cornell students who are interested in music, as she is a musician herself.
 
 **Obstacles:**
 
-TODO: summary of persona's obstacles (1-2 bullet points)
+- Her parents are very strict, and she is not allowed to use social media.
+- She is not allowed to use her laptop, as she is not allowed to have a laptop.
+- Basically, her parents are her obstacle
+
 
 **Desires:**
 
-TODO: summary of persona's desires (1-2 bullet points)
-
+- What Ezra truly desires is love and acceptance from her parents.
+- But if that's unattainable, then a social media platform that allows her to meet other Cornell students will do.
 
 ### _Administrator_ Audience (Milestone 1)
 > Briefly explain your site's _administrator_ audience. Your audience should be specific, but not arbitrarily specific. (1 sentence)
 > Justify why this audience is a **cohesive** group. (1-2 sentences)
 
-TODO: site audience
+The site will be administered by the Cornell IT department, and by Ming DeMers. Also by Calvin Smith, because he asked.
 
-TODO: why is this a _cohesive_ audience?
-
+This is cohesive as it makes sense that only IT individuals (and Ming, and Calvin) would be able to access the database, and mess around with the site. We wouldn't want just anyone (except Ming and Calvin) to be able to access the database, and mess around with the site, now would we?
 
 ### _Administrator_ Audience Goals (Milestone 1)
 > Document your _administrator_ audience's goals for using this catalog website.
 > List each goal below. There is no specific number of goals required for this, but you need enough to do the job (Hint: It's more than 1. But probably not more than 3.)
 > **Hint:** Users will be able to view all entries in the catalog and insert new entries into the catalog. The audience's goals should probably relate to these activities.
 
-Goal 1: TODO: brief title
+Goal 1: Manipulate the Database
 
 - **Design Ideas and Choices** _How will you meet those goals in your design?_
-  - TODO: design ideas (1-2 sentences)
+  - The database will be accessible to the IT department, and to Ming DeMers, and to Calvin Smith
+  - They will be able to add, modify, and delete entries
 - **Rationale & Additional Notes** _Justify your decisions; additional notes._
-  - TODO: rationale  (1-2 sentences)
+  - This allows anyone to request an account, to be added to the database, and to be able to modify their own information
 
-Goal 2: TODO: brief title
+Goal 2: Add image to the database
 
 - **Design Ideas and Choices** _How will you meet those goals in your design?_
-  - TODO: design ideas (1-2 sentences)
+  - It is important that the database can store images
+  - Admins will be able to add images, and modify them
 - **Rationale & Additional Notes** _Justify your decisions; additional notes._
-  - TODO: rationale (1-2 sentences)
-
-Goal 3: TODO: brief title
-
-TODO: design ideas and rationale
-
-
-TODO: add as many goals as needed
-
+  - We wouldn't want random images to be store on this site, so we need to make sure that only admins can add images
 
 ### _Administrator_ Persona (Milestone 1)
 > Use the goals you identified above to develop a persona of your site's _administrator_ audience.
 > Your persona must have a name and a face. The face can be a photo of a face or a drawing, etc.
 
-TODO: persona's face
+![Alt text](administrator%20johnny_john_johnston.jpg)
 
-TODO: persona name
+
+Johnny John Johnston
 
 **Factors that Influence Behavior:**
 
-TODO: summary of the persona's factors that influence their behavior (1-2 bullet points)
+- Johnny is IT@Cornell, and a recent graduate at Harvard Law.
+- Despite being in quite the debt for graduate school, he has chosen to follow his passion: IT
+- He is a very passionate individual, and he is very passionate about IT.
+- There is one problem, however: he is not very good at IT.
+- Also, Johnny has a twin, Ynnohj, who tends to follow him around a lot, and only speaks in reverse.
 
 **Goals:**
 
-TODO: summary of persona's goals (1-2 bullet points)
+- Johnny wants to be a good IT person, by adding, modifying, and deleting entries
+- He also wants to add images to the database
+- And maybe get Ynnohj a job that isn't in Ithaca, so he can finally be left alone.
+
 
 **Obstacles:**
 
-TODO: summary of persona's obstacles (1-2 bullet points)
+- Crippling debt
+- His twin
+- His lack of IT skills
 
 **Desires:**
 
-TODO: summary of persona's desires (1-2 bullet points)
+- To be a good IT person
+- To manage the database
+- To be left alone
 
 
 ### Catalog Data (Milestone 1)
 > Using your personas, identify the data you need to include in the catalog for your site's audiences.
 > Justify why this data aligns with your persona's goals. (1 sentence)
 
-TODO: list the data your persona will need to effectively use the catalog
+Kernels db:
+- netid
+- image
+- date
+- location
+- description
 
-TODO: Justify why this data aids the persona with their goals.
+Leaves db:
+- Name
+- NetID
+- Year
+- Major
+- Clubs/Activities
+- Other Interests
+- Location
+- Image
 
+This allows Ezra to find other users who have similar interests, and who are in the same year, and who are in the same major, and who are in the same clubs/activities, and who are in the same location. On the other hand, Johnny can easily manage the database, and add, modify, and delete entries, and add images to the database.
 
 
 ### Site Design (Milestone 1)
@@ -177,14 +206,25 @@ TODO: Justify why this data aids the persona with their goals.
 > Provide a brief explanation _underneath_ each sketch. (1 sentence)
 > **Refer to your persona by name in each explanation.**
 
-TODO: sketch(es) + explanation
+![Alt text](home_page.png)
+The home page of the site, it shows recent posts, and a search bar, and a login button. Ezra or Johnny can see the posts. However, Johnny can also edit or remove posts, if necessary.
 
+![Alt text](details_page.png)
+Upon clicking a post, the Ezra or Johnny will be taken to the details page, where they can see the post in more detail. They can see who has liked it, and comments. If they aren't logged in, then they will be asked to login first.
+
+![Alt text](people_view.png)
+Johnny or Ezra can view all the people in the database, and filter them by year, major, clubs/activities, and location. They can also search for people by name. Johnny can also add, modify, and delete people.
+
+![Alt text](details_page.png)
+Upon clicking a person,  Ezra or Johnny will be taken to the details page, where they can see the person in more detail. Only users logged in can see the details.
+
+![Alt text](404_page.png)
+if the Ezra or Johnny tries to access a page that doesn't exist, they will be taken to the 404 page, where they can be redirected to the home page.
 
 ### Catalog Design Patterns (Milestone 1)
 > Explain how you used design patterns in your site's design. (1-2 sentences)
 
-TODO: design pattern explanation
-
+I used a multi-page designt pattern, where the user can navigate between different pages. I also used a search bar, where the user can search for people by name. I also used a filter, where the user can filter people by year, major, clubs/activities, and location. I also used a login button, where the user can login to the site. I also used a 404 page, where the user can be redirected to the home page, if they try to access a page that doesn't exist.
 
 ## Implementation Plan (Milestone 1, Milestone 2, Milestone 3, Final Submission)
 
@@ -193,12 +233,32 @@ TODO: design pattern explanation
 > A bulleted list is probably the simplest way to do this.
 > Make sure you include constraints for each field.
 
-Table: TODO: table name
+Posts:
 
-- field1: TYPE {constraints...},
-- field2...
-- TODO: table fields + type + constraints
+- id: INTEGER {PK, AI, NN, U},
+- netid: STRING {NN}
+- image: STRING {NN}
+- likes: INTEGER {NN}
+- date: DATE {NN}
+- location: STRING {}
+- description: STRING {}
 
+Details:
+- id: INTEGER {PK, AI, NN, U},
+- netid: STRING {NN}
+- post_fk: STRING {NN}
+- comment: STRING {NN}
+
+Users:
+- id: INTEGER {PK, AI, NN, U},
+- netid: STRING {NN, U}
+- name: STRING {NN}
+- year: INTEGER {NN}
+- major: STRING {NN}
+- clubs: STRING {}
+- interests: STRING {}
+- location: STRING {}
+- image: STRING {}
 
 ### Database Query Plan (Milestone 1, Milestone 2, Milestone 3, Final Submission)
 > Plan _all_ of your database queries.
