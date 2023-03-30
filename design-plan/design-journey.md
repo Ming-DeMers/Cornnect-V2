@@ -78,7 +78,7 @@ This is because it is a social media platform, and people are more likely to use
 
 ![Alt text](consumer_ezra_cornel.jpg "Ezra Cornell (absolutely not a real person, absolutely no relation to our esteemed founder)")
 
-*Ezra Cornell (absolutely not a real person, absolutely no relation to our esteemed founder)*
+_Ezra Cornell (absolutely not a real person, absolutely no relation to our esteemed founder)_
 
 **Factors that Influence Behavior:**
 
@@ -88,6 +88,7 @@ This is because it is a social media platform, and people are more likely to use
 - Ezra is now a freshman at Cornell.
 
 **Goals:**
+
 - Ezra is looking for a way to meet other Cornell students, as she is not a part of any clubs or organizations.
 - She wants to stalk a hot guy she met a party last weekend, but she doesn't want to be creepy about it.
 - She also wants to find a way to meet other Cornell students who are interested in music, as she is a musician herself.
@@ -175,6 +176,7 @@ Johnny John Johnston
 > Justify why this data aligns with your persona's goals. (1 sentence)
 
 posts db:
+
 - netid
 - image
 - date
@@ -182,6 +184,7 @@ posts db:
 - description
 
 users db:
+
 - Name
 - NetID
 - Year
@@ -192,6 +195,7 @@ users db:
 - Image
 
 comments db:
+
 - netid
 - post_id
 - comment
@@ -251,12 +255,14 @@ Posts:
 - description: STRING {}
 
 Details:
+
 - id: INTEGER {PK, AI, NN, U},
 - netid: STRING {NN}
 - post_fk: STRING {NN}
 - comment: STRING {NN}
 
 Users:
+
 - id: INTEGER {PK, AI, NN, U},
 - netid: STRING {NN, U}
 - name: STRING {NN}
@@ -272,15 +278,20 @@ Users:
 > You may use natural language, pseudocode, or SQL.
 
 ```
-TODO: Plan a query
+$result = exec_sql_query(
+  $db,
+  "SELECT * FROM posts
+  FROM comments INNER JOIN posts ON (posts.id = comments.post_id) ORDER BY post_date DESC
+
+);
 ```
 
 ```
-TODO: Plan another query
+$result = exec_sql_query(
+  $db,
+  "SELECT * FROM posts;"
+);
 ```
-
-TODO: ...
-
 
 ## Complete & Polished Website (Final Submission)
 

@@ -6,7 +6,6 @@ $result = exec_sql_query(
   "SELECT * FROM posts;"
 );
 
-// -- FROM comments INNER JOIN posts ON (posts.id = comments.post_id) ORDER BY post_date DESC
 
 // get records from query
 $records = $result->fetchAll();
