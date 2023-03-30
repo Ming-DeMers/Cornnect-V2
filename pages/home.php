@@ -17,17 +17,11 @@ $records = $result->fetchAll();
 
 <head>
   <link rel="stylesheet" href="../public/styles/site.css">
-  <title>Instagram Clone</title>
+  <title>Cornnect - Home</title>
 </head>
 
 <body>
-
-  <header>
-    <nav class="navbar">
-      <h1>Cornnect</h1>
-      <h2>The place for all your pals!</h2>
-    </nav>
-  </header>
+  <?php include 'includes/header.php'; ?>
   <main>
 
     <?php

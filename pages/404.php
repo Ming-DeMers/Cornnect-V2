@@ -4,14 +4,22 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-  <title>TODO: 404</title>
+  <link rel="stylesheet" href="../public/styles/site.css">
+  <title>Cornnect - 404</title>
 </head>
 
 <body>
 
-  TODO: 404
+  <?php include 'includes/header.php'; ?>
 
+  <div class="body" id="error-page">
+    <h2>Oops! Looks like you got lost in the Corn Maze!</h2>
+    <h3>You can:</h3>
+
+    <a href="/"><button>Go Home</button></a>
+    <a href="javascript:history.go(-1)"><button>Go Back</button></a>
+
+  </div>
 </body>
 
 </html>
