@@ -1,0 +1,28 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: serif;
+  margin: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Courier New', Courier, monospace;
+  color: #444;
+  background-color: #e9d358;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  margin: 50px;
+  border: #a53724 solid 5px;
+}
+
+.card .head {
+  display: flex;
+  flex-direction: row;
+}

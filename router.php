@@ -1,5 +1,8 @@
 <?php
 include_once('includes/db.php');
+include_once('includes/init.php');
+
+$db = init_sqlite_db('db/site.sqlite', 'db/init.sql');
 
 const ROUTES = array(
   '/' => 'pages/home.php'

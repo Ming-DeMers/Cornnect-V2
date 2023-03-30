@@ -174,22 +174,29 @@ Johnny John Johnston
 > Using your personas, identify the data you need to include in the catalog for your site's audiences.
 > Justify why this data aligns with your persona's goals. (1 sentence)
 
-Kernels db:
+posts db:
 - netid
 - image
 - date
 - location
 - description
 
-Leaves db:
+users db:
 - Name
 - NetID
 - Year
 - Major
 - Clubs/Activities
 - Other Interests
-- Location
+- bio
 - Image
+
+comments db:
+- netid
+- post_id
+- comment
+- date
+
 
 This allows Ezra to find other users who have similar interests, and who are in the same year, and who are in the same major, and who are in the same clubs/activities, and who are in the same location. On the other hand, Johnny can easily manage the database, and add, modify, and delete entries, and add images to the database.
 
