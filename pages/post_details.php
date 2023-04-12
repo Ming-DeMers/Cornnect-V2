@@ -3,12 +3,11 @@
 $sql_select_post_query = "SELECT * FROM posts WHERE posts.id = " . $_GET['id'];
 $sql_select_tags_query = "SELECT posts.id AS id, tags.tag AS 'tag'
 FROM posts INNER JOIN tags ON (tags.post_id = posts.id) WHERE posts.id = " . $_GET['id'];
-
-$sql_select_query = $sql_select_clause . ';';
+$sql_select_comments_query = "SELECT * FROM comments WHERE comments.post_id = " . $_GET['id'];
 
 $post = exec_sql_query(
   $db,
-  $sql_select_tags_query,
+  $sql_select_post_query,
 )->fetchAll();
 
 $tags = exec_sql_query(
@@ -16,6 +15,10 @@ $tags = exec_sql_query(
   $sql_select_tags_query,
 )->fetchAll();
 
+$comments = exec_sql_query(
+  $db,
+  $sql_select_comments_query,
+)->fetchAll();
 ?>
 
 <!DOCTYPE html>
@@ -31,27 +34,40 @@ $tags = exec_sql_query(
 
 <body>
   <?php include 'includes/header.php'; ?>
-
-  <p>A post of your choosing would go here...</p>
-  <div class="card">
-    <div class="head">
-      <ul><?php echo htmlspecialchars($post['netid']); ?></ul> |
-      <ul><?php echo htmlspecialchars($post['date']); ?></ul> |
-      <ul><?php echo htmlspecialchars($post['location']); ?></ul> |
+  <?php foreach ($post as $post) { ?>
+    <div class="card">
+      <div class="head">
+        <?php echo htmlspecialchars($post['netid']); ?> |
+        <?php echo htmlspecialchars($post['date']); ?> |
+        <?php echo htmlspecialchars($post['location']); ?> |
+      </div>
+      <div class="photo">
+        <img src="public/uploads/placeholder.jpg" alt="">
+      </div>
+      <div class="desc">
+        <ul><?php echo htmlspecialchars($post["desc"]); ?></ul>
+      </div>
     </div>
-    <div class="photo">
-      <img src="public/uploads/placeholder.jpg" alt="">
-    </div>
-    <div class="desc">
-      <ul><?php echo htmlspecialchars($post["desc"]); ?></ul>
-    </div>
-  </div>
+  <?php } ?>
   <div class="tags">
-    Tags!
+    <h3>Tags:</h3>
     <?php
     foreach ($tags as $tag) { ?>
-      <?php echo htmlspecialchars($tag['tag']); ?>,</div>
+      <?php echo htmlspecialchars($tag['tag']); ?>
+  </div>
 <?php } ?>
+
+<div class="comments">
+  <h3>Comments:</h3>
+  <?php
+  foreach ($comments as $comment) { ?>
+    <div class="comment">
+      <?php echo htmlspecialchars($comment['netid']); ?> |
+      <?php echo htmlspecialchars($comment['date']); ?> |
+      <?php echo htmlspecialchars($comment['comment']); ?>
+    </div>
+  <?php } ?>
+
 
 </body>
 

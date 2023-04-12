@@ -7,7 +7,7 @@ $result = exec_sql_query(
 
 
 // get records from query
-$records = $result->fetchAll();
+$posts = $result->fetchAll();
 ?>
 
 <!DOCTYPE html>
@@ -21,29 +21,7 @@ $records = $result->fetchAll();
 <body>
   <?php include 'includes/header.php'; ?>
   <main>
-
-    <?php
-    // write a table row for each record
-    foreach ($records as $record) { ?>
-      <div class="card">
-        <div class="head">
-          <ul><?php echo htmlspecialchars($record['netid']); ?></ul> |
-          <ul><?php echo htmlspecialchars($record['date']); ?></ul> |
-          <ul><?php echo htmlspecialchars($record['location']); ?></ul> |
-        </div>
-        <div class="photo">
-          <img src="public/uploads/placeholder.jpg" alt="">
-        </div>
-        <div class="desc">
-          <ul><?php echo htmlspecialchars($record["desc"]); ?></ul>
-        </div>
-        <div class="more">
-          <a href="/details?id=<?php echo htmlspecialchars($record['id']); ?>">More</a>
-        </div>
-      </div>
-    <?php } ?>
-
-
+    <?php include 'includes/posts.php'; ?>
   </main>
 </body>
 

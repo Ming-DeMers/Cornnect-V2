@@ -6,9 +6,12 @@ $db = init_sqlite_db('db/site.sqlite', 'db/init.sql');
 
 const ROUTES = array(
   '/' => 'pages/home.php',
-  '/post' => 'pages/post.php',
   '/profile' => 'pages/profile.php',
-  '/details' => 'pages/post_details.php'
+  '/post' => 'pages/post_details.php',
+  '/users' => 'pages/users.php',
+  '/user' => 'pages/user_details.php',
+  '/login' => 'pages/login.php',
+  '/new_post' => 'pages/new_post.php',
 );
 
 function match_static($uri)
