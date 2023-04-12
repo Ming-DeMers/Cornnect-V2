@@ -82,6 +82,16 @@ VALUES
   );
 
 INSERT INTO
+  posts (netid, date, location, desc)
+VALUES
+  (
+    'mtd64',
+    2022,
+    'The Bardo',
+    "Help, I'm stuck!"
+  );
+
+INSERT INTO
   comments (post_id, netid, date, comment)
 VALUES
   (
@@ -89,6 +99,16 @@ VALUES
     'ez455',
     2023 -09 -20,
     'I am so hungry too. I am going to go get food. I will be back in 5 minutes.'
+  );
+
+INSERT INTO
+  comments (post_id, netid, date, comment)
+VALUES
+  (
+    2,
+    'mtd64',
+    2023 -09 -20,
+    "Wasn't me!"
   );
 
 INSERT INTO
@@ -105,3 +125,13 @@ INSERT INTO
   tags (post_id, tag)
 VALUES
   (2, 'Clark Hall');
+
+INSERT INTO
+  tags (post_id, tag)
+VALUES
+  (2, 'stealing');
+
+INSERT INTO
+  tags (post_id, tag)
+VALUES
+  (3, 'The Bardo');

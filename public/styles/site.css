@@ -20,3 +20,12 @@ body {
   display: flex;
   flex-direction: row;
 }
+
+.feedback {
+  color: #dc341e;
+  font-weight: bold;
+}
+
+.hidden {
+  display: none;
+}

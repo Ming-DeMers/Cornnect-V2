@@ -35,18 +35,17 @@ $comments = exec_sql_query(
 <body>
   <?php include 'includes/header.php'; ?>
   <?php foreach ($post as $post) { ?>
-    <div class="card">
-      <div class="head">
-        <?php echo htmlspecialchars($post['netid']); ?> |
-        <?php echo htmlspecialchars($post['date']); ?> |
-        <?php echo htmlspecialchars($post['location']); ?> |
-      </div>
-      <div class="photo">
-        <img src="public/uploads/placeholder.jpg" alt="">
-      </div>
-      <div class="desc">
-        <ul><?php echo htmlspecialchars($post["desc"]); ?></ul>
-      </div>
+    <div class="head">
+      <h3>Posted by <?php echo htmlspecialchars($post['netid']); ?>, at
+        <?php echo htmlspecialchars($post['location']); ?>,
+        <?php echo htmlspecialchars($post['date']); ?></h3>
+
+    </div>
+    <div class="photo">
+      <img src="public/uploads/placeholder.jpg" alt="">
+    </div>
+    <div class="desc">
+      <ul><?php echo htmlspecialchars($post["desc"]); ?></ul>
     </div>
   <?php } ?>
   <div class="tags">
@@ -62,9 +61,7 @@ $comments = exec_sql_query(
   <?php
   foreach ($comments as $comment) { ?>
     <div class="comment">
-      <?php echo htmlspecialchars($comment['netid']); ?> |
-      <?php echo htmlspecialchars($comment['date']); ?> |
-      <?php echo htmlspecialchars($comment['comment']); ?>
+      <?php echo htmlspecialchars($comment['netid']); ?>) <?php echo htmlspecialchars($comment['comment']); ?>
     </div>
   <?php } ?>
 
