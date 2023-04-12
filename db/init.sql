@@ -16,7 +16,7 @@ CREATE TABLE posts (
   date INTEGER NOT NULL,
   location TEXT,
   desc TEXT,
-  PRIMARY KEY(id AUTOINCREMENT) FOREIGN KEY (netid) REFERENCES users (netid)
+  PRIMARY KEY(id AUTOINCREMENT) FOREIGN KEY (netid) REFERENCES users(netid)
 );
 
 CREATE TABLE comments (
@@ -25,7 +25,14 @@ CREATE TABLE comments (
   netid TEXT NOT NULL UNIQUE,
   date INTEGER NOT NULL,
   comment TEXT NOT NULL,
-  PRIMARY KEY (id AUTOINCREMENT) FOREIGN KEY (post_id) REFERENCES posts (id) FOREIGN KEY (netid) REFERENCES users (netid)
+  PRIMARY KEY (id AUTOINCREMENT) FOREIGN KEY (post_id) REFERENCES posts(id) FOREIGN KEY (netid) REFERENCES users(netid)
+);
+
+CREATE TABLE tags (
+  id INTEGER NOT NULL UNIQUE,
+  post_id INTEGER NOT NULL,
+  tag TEXT NOT NULL,
+  PRIMARY KEY (id AUTOINCREMENT) FOREIGN KEY (post_id) REFERENCES posts(id)
 );
 
 INSERT INTO
@@ -48,7 +55,7 @@ VALUES
     'Ezra Cornell',
     'ez455',
     2026,
-    'Bio',
+    'Biology',
     NULL,
     NULL,
     "I'm the woman, not the founder!"
@@ -83,3 +90,18 @@ VALUES
     2023 -09 -20,
     'I am so hungry too. I am going to go get food. I will be back in 5 minutes.'
   );
+
+INSERT INTO
+  tags (post_id, tag)
+VALUES
+  (1, 'Cafe Jennie');
+
+INSERT INTO
+  tags (post_id, tag)
+VALUES
+  (1, 'hungry');
+
+INSERT INTO
+  tags (post_id, tag)
+VALUES
+  (2, 'Clark Hall');

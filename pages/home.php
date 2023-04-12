@@ -1,5 +1,4 @@
 <?php
-
 // query the db
 $result = exec_sql_query(
   $db,
@@ -37,6 +36,9 @@ $records = $result->fetchAll();
         </div>
         <div class="desc">
           <ul><?php echo htmlspecialchars($record["desc"]); ?></ul>
+        </div>
+        <div class="more">
+          <a href="/details?id=<?php echo htmlspecialchars($record['id']); ?>">More</a>
         </div>
       </div>
     <?php } ?>
