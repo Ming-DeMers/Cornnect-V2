@@ -12,7 +12,7 @@ CREATE TABLE users (
 
 CREATE TABLE posts (
   id INTEGER NOT NULL UNIQUE,
-  netid TEXT NOT NULL UNIQUE,
+  netid TEXT NOT NULL,
   date INTEGER NOT NULL,
   location TEXT,
   desc TEXT,

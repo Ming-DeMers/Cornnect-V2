@@ -1,112 +1,72 @@
 <?php
 
 // query the db
-$result = exec_sql_query(
+$posts = exec_sql_query(
   $db,
   "SELECT * FROM posts;"
-);
-
-$records = $result->fetchAll();
+)->fetchAll();
 
 // default page state.
 $show_confirmation = False;
 
-// // feedback message CSS classes
-// $form_feedback_classes = array(
-//   'name' => 'hidden',
-//   'year' => 'hidden',
-//   'netid' => 'hidden'
-// );
+// feedback message CSS classes
+$form_feedback_classes = array(
+  'desc' => 'hidden',
+  'netid' => 'hidden'
+);
 
-// // values
-// $form_values = array(
-//   'name' => '',
-//   'netid' => '',
-//   'year' => '',
-//   'major' => NULL,
-//   'club' => NULL,
-// );
+// values
+$form_values = array(
+  'netid' => '',
+  'location' => '',
+  'desc' => NULL,
+);
 
-// // sticky values
-// $sticky_values = array(
-//   'name' => '',
-//   'netid' => '',
-//   '2026' => '',
-//   '2025' => '',
-//   '2024' => '',
-//   '2023' => '',
-//   'year' => NULL,
-//   'major' => NULL,
-//   'clubs' => NULL
-// );
+// validates if form was submitted:
+if (isset($_POST['add-post'])) {
+  $form_values['netid'] = trim($_POST['netid']);
+  $form_values['location'] = trim($_POST['location']);
+  $form_values['desc'] = trim($_POST['desc']);
 
-// // validates if form was submitted:
-// if (isset($_POST['add-user'])) {
-//   $form_values['name'] = trim($_POST['name']);
-//   $form_values['netid'] = trim($_POST['netid']);
-//   $form_values['year'] = trim($_POST['year']);
-//   $form_values['major'] = trim($_POST['major']);
-//   $form_values['club'] = trim($_POST['club']);
+  $form_valid = True;
 
-//   // make sure major and club are NULL if empty
-//   if ($form_values['major'] == '') {
-//     $form_values['major'] = NULL;
-//   }
+  // validate form values
+  if ($form_values['netid'] == '') {
+    $form_valid = False;
+    $form_feedback_classes['netid'] = 'error';
+  }
 
-//   if ($form_values['club'] == '') {
-//     $form_values['club'] = NULL;
-//   }
+  if ($form_values['location'] == '') {
+    $form_valid = False;
+    $form_feedback_classes['location'] = 'error';
+  }
 
-//   $form_valid = True;
+  if ($form_values['desc'] == NULL) {
+    $form_valid = False;
+    $form_feedback_classes['desc'] = 'error';
+  }
 
-//   // check if one of the years was selected
-//   if ($form_values['year'] == NULL) {
-//     $form_valid = False;
-//     $form_feedback_classes['year'] = NULL;
-//     $retry_form = True;
-//   }
-
-//   if ($form_values['name'] == '') {
-//     $form_valid = False;
-//     $form_feedback_classes['name'] = '';
-//     $retry_form = True;
-//   }
-
-//   if ($form_values['netid'] == '') {
-//     $form_valid = False;
-//     $form_feedback_classes['netid'] = '';
-//     $retry_form = True;
-//   }
-
-//   // show confirmation if form is valid, otherwise set sticky values and echo them
-//   if ($form_valid) {
-//     exec_sql_query(
-//       $db,
-//       "INSERT INTO cornellians (name, netid, year, major, club) VALUES (:name, :netid, :year, :major, :club);",
-//       array(
-//         ':name' => $form_values['name'],
-//         ':netid' => $form_values['netid'],
-//         ':year' => $form_values['year'],
-//         ':major' => $form_values['major'],
-//         ':club' => $form_values['club']
-//       )
-//     );
-//     $retry_form = False;
-//     $show_confirmation = True;
-//   } else {
-//     $retry_form = True;
-
-//     $sticky_values['name'] = $form_values['name'];
-//     $sticky_values['netid'] = $form_values['netid'];
-//     $sticky_values['major'] = $form_values['major'];
-//     $sticky_values['club'] = $form_values['club'];
-
-//     $sticky_values['2026'] = ($form_values['year'] == '2026' ? 'checked' : '');
-//     $sticky_values['2025'] = ($form_values['year'] == '2025' ? 'checked' : '');
-//     $sticky_values['2024'] = ($form_values['year'] == '2024' ? 'checked' : '');
-//     $sticky_values['2023'] = ($form_values['year'] == '2023' ? 'checked' : '');
-//   }
-// }
+  // show confirmation if form is valid, otherwise set sticky values and echo them
+  if ($form_valid) {
+    exec_sql_query(
+      $db,
+      "INSERT INTO posts (netid, location, desc, date) VALUES (:netid, :location, :desc, :date);",
+      array(
+        ':netid' => $form_values['netid'],
+        ':location' => $form_values['location'],
+        ':desc' => $form_values['desc'],
+        ':date' => date('Y-m-d H:i:s')
+      )
+    );
+    $retry_form = False;
+    $show_confirmation = True;
+  } else {
+    $retry_form = True;
+    $sticky_values['netid'] = $form_values['netid'];
+    $sticky_values['location'] = $form_values['location'];
+    $sticky_values['desc'] = $form_values['desc'];
+  }
+}
 ?>
 
 <!DOCTYPE html>
@@ -123,10 +83,10 @@ $show_confirmation = False;
 <body>
   <?php include 'includes/header.php'; ?>
   <section>
-    <div class="add-form">
+    <div class="add-post">
 
       <h2>Add new post!</h2>
-      <form method="post" action="/post" novalidate>
+      <form method="post" action="/new_post" novalidate>
         <p class="feedback <?php echo $form_feedback_classes['netid']; ?>">Please provide your netID</p>
         <div class="label-input">
           <label for="netid_field">netID:</label>
@@ -137,6 +97,7 @@ $show_confirmation = False;
           <label for="image_field">Image:</label>
           <input id="image_field" type="text" name="image" value="<?php echo $sticky_values['image']; ?>">
         </div>
+        <p class="feedback <?php echo $form_feedback_classes['location']; ?>">Where are you?</p>
         <div class="label-input">
           <label for="location_field">Location:</label>
           <input id="location_field" type="text" name="location" value="<?php echo $sticky_values['location']; ?>">
@@ -155,8 +116,8 @@ $show_confirmation = False;
   <?php if ($show_confirmation) { ?>
     <div class="confirmation">
       <section>
-        <h3>You've Been Added!</h3>
-        <p>Thank you <?php echo htmlspecialchars($form_values['name']); ?>. Classmates can now find you on the World Wide Web! Hopefully you can find other <?php echo htmlspecialchars(YEAR[$form_values['year']]); ?>s in similar majors/clubs! </p>
+        <h3>Post Pubbed!</h3>
+        <p>Thank you <?php echo htmlspecialchars($form_values['netid']); ?>. Your post has been added!</p>
         <?php $show_form = FALSE ?>
       </section>
     </div>
