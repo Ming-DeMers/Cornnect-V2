@@ -34,36 +34,39 @@ $comments = exec_sql_query(
 
 <body>
   <?php include 'includes/header.php'; ?>
-  <?php foreach ($post as $post) { ?>
-    <div class="head">
-      <h3>Posted by <?php echo htmlspecialchars($post['netid']); ?>, at
-        <?php echo htmlspecialchars($post['location']); ?>,
-        <?php echo htmlspecialchars($post['date']); ?></h3>
+  <div class="details">
 
+    <?php foreach ($post as $post) { ?>
+      <div class="head">
+        <h3>Posted by <?php echo htmlspecialchars($post['netid']); ?>, at
+          <?php echo htmlspecialchars($post['location']); ?>,
+          <?php echo htmlspecialchars($post['date']); ?></h3>
+      </div>
+      <div class="photo">
+        <?php $file_url = '/public/uploads/posts/' . $post['id'] . '.' . $post['file_ext']; ?>
+        <img src="<?php echo htmlspecialchars($file_url); ?>" alt="<?php echo htmlspecialchars($record['file_name']); ?>">
+      </div>
+      <div class="desc">
+        <ul><?php echo htmlspecialchars($post["desc"]); ?></ul>
+      </div>
+    <?php } ?>
+    <div class="tags">
+      <h3>Tags:</h3>
+      <?php
+      foreach ($tags as $tag) { ?>
+        <?php echo htmlspecialchars($tag['tag']); ?>
     </div>
-    <div class="photo">
-      <img src="public/uploads/placeholder.jpg" alt="">
-    </div>
-    <div class="desc">
-      <ul><?php echo htmlspecialchars($post["desc"]); ?></ul>
-    </div>
-  <?php } ?>
-  <div class="tags">
-    <h3>Tags:</h3>
+    <?php } ?>
+
+    <div class="comments">
+    <h3>Comments:</h3>
     <?php
-    foreach ($tags as $tag) { ?>
-      <?php echo htmlspecialchars($tag['tag']); ?>
+    foreach ($comments as $comment) { ?>
+      <div class="comment">
+        <?php echo htmlspecialchars($comment['netid']); ?>) <?php echo htmlspecialchars($comment['comment']); ?>
+      </div>
+    <?php } ?>
   </div>
-<?php } ?>
-
-<div class="comments">
-  <h3>Comments:</h3>
-  <?php
-  foreach ($comments as $comment) { ?>
-    <div class="comment">
-      <?php echo htmlspecialchars($comment['netid']); ?>) <?php echo htmlspecialchars($comment['comment']); ?>
-    </div>
-  <?php } ?>
 
 
 </body>

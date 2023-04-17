@@ -16,6 +16,8 @@ CREATE TABLE posts (
   date INTEGER NOT NULL,
   location TEXT,
   desc TEXT,
+  file_name TEXT NOT NULL,
+  file_ext TEXT NOT NULL,
   PRIMARY KEY(id AUTOINCREMENT) FOREIGN KEY (netid) REFERENCES users(netid)
 );
 
@@ -62,33 +64,39 @@ VALUES
   );
 
 INSERT INTO
-  posts (netid, date, location, desc)
+  posts (netid, date, location, desc, file_name, file_ext)
 VALUES
   (
     'mtd64',
     2023 -03 -03,
     'Cafe Jennie',
-    'Guys I am so hungry. But this INFO 2300 Website must come first!!'
+    'Guys I am so hungry. But this INFO 2300 Website must come first!!',
+    'CAFE_JENNIE.JPG',
+    'jpg'
   );
 
 INSERT INTO
-  posts (netid, date, location, desc)
+  posts (netid, date, location, desc, file_name, file_ext)
 VALUES
   (
     'ez455',
     2023 -03 - 30,
     'Clark Hall',
-    'What? I just saw a person stealing a TV here, lol.'
+    'What? I just saw a person stealing a TV here, lol.',
+    'TV_STEALING.JPG',
+    'jpg'
   );
 
 INSERT INTO
-  posts (netid, date, location, desc)
+  posts (netid, date, location, desc, file_name, file_ext)
 VALUES
   (
     'mtd64',
     2022,
     'The Bardo',
-    "Help, I'm stuck!"
+    "Help, I'm stuck!",
+    'the_bardo.jpg',
+    'jpg'
   );
 
 INSERT INTO
