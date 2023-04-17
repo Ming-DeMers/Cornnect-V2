@@ -18,12 +18,29 @@ body {
   background-color: #a53724;
   color: white;
   border-radius: 10px;
-  padding: 10px;
+  padding: 15px;
+}
+
+.user-link {
+  color: white;
+}
+
+#user-link-post-details,
+#user-link-comment {
+  color: black;
+}
+
+
+.profile-grid {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
 .card .head {
   display: flex;
   flex-direction: row;
+  margin: 15px;
 }
 
 .card img {
@@ -46,10 +63,24 @@ body {
   align-items: center;
 }
 
-.details img {
+
+.profile {
+  display: flex;
+  flex-direction: row;
+}
+
+.profile-details img {
   width: 750px;
   border-radius: 10px;
 }
+
+.profile-details {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+}
+
+.profile-posts a {}
 
 .hidden {
   display: none;

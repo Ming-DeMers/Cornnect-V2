@@ -28,19 +28,25 @@ if (isset($_GET['netid'])) {
 <body>
   <?php include 'includes/header.php'; ?>
   <main>
+    <div class="profile-grid">
 
-    <?php
-    foreach ($users as $user) { ?>
-      <div class="card">
-        <div class="head">
-          <?php echo htmlspecialchars($user['name']); ?> |
-          <?php echo htmlspecialchars($user['netid']); ?> |
-          <?php echo htmlspecialchars($user['year']); ?> |
+      <?php
+      foreach ($users as $user) { ?>
+        <div class="card" id="profile-card">
+          <div class="head">
+            <?php echo htmlspecialchars($user['name']); ?> |
+            <?php echo htmlspecialchars($user['netid']); ?> |
+            <?php echo htmlspecialchars($user['year']); ?> |
+          </div>
+          <div class="card-photo">
+            <?php $file_url = '/public/uploads/users/' . $user['netid'] . '.' . 'jpg'; ?>
+            <a href="/user? netid=<?php echo htmlspecialchars($user['netid']); ?>">
+              <img src="<?php echo htmlspecialchars($file_url); ?>" alt="<?php echo htmlspecialchars($user['netid'] . 'profile picture'); ?>">
+            </a>
+          </div>
         </div>
-        <div class="photo"> <a href="/user?netid=<?php echo htmlspecialchars($user['netid']); ?>"> <img src="public/uploads/placeholder.jpg" alt=""></a>
-        </div>
-      </div>
-    <?php } ?>
+      <?php } ?>
+    </div>
 
 
   </main>

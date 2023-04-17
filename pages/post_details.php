@@ -38,7 +38,7 @@ $comments = exec_sql_query(
 
     <?php foreach ($post as $post) { ?>
       <div class="head">
-        <h3>Posted by <?php echo htmlspecialchars($post['netid']); ?>, at
+        <h3>Posted by <a class="user-link" id="user-link-post-details" href="/user?netid=<?php echo htmlspecialchars($post['netid']); ?>"><?php echo htmlspecialchars($post['netid']); ?></a>, at
           <?php echo htmlspecialchars($post['location']); ?>,
           <?php echo htmlspecialchars($post['date']); ?></h3>
       </div>
@@ -56,14 +56,14 @@ $comments = exec_sql_query(
       foreach ($tags as $tag) { ?>
         <?php echo htmlspecialchars($tag['tag']); ?>
     </div>
-    <?php } ?>
+  <?php } ?>
 
-    <div class="comments">
+  <div class="comments">
     <h3>Comments:</h3>
     <?php
     foreach ($comments as $comment) { ?>
       <div class="comment">
-        <?php echo htmlspecialchars($comment['netid']); ?>) <?php echo htmlspecialchars($comment['comment']); ?>
+      <a class="user-link" id="user-link-comment" href="/user?netid=<?php echo htmlspecialchars($comment['netid']); ?>"><?php echo htmlspecialchars($comment['netid']); ?></a>) <?php echo htmlspecialchars($comment['comment']); ?>
       </div>
     <?php } ?>
   </div>

@@ -172,7 +172,7 @@ if (isset($_POST['add-post'])) {
   <div class="confirmation">
     <section>
       <h3>Post Pubbed!</h3>
-      <p>Thank you <?php echo htmlspecialchars($form_values['netid']); ?>. Your post has been added! You used the photo <?php echo $upload_file_name; ?> with the extension <?php echo $upload_file_ext; ?></p>
+      <p>Thank you <?php echo htmlspecialchars($form_values['netid']); ?>. Your post has been added! You used the photo <?php echo htmlspecialchars($upload_file_name); ?> with the extension <?php echo htmlspecialchars($upload_file_ext); ?></p>
       <?php $show_form = FALSE ?>
     </section>
   </div>

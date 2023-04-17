@@ -2,11 +2,10 @@
 foreach ($posts as $post) { ?>
   <div class="card">
     <div class="head">
-      <?php echo htmlspecialchars($post['netid']); ?> |
+      <a class="user-link" href="/user?netid=<?php echo htmlspecialchars($post['netid']); ?>"><?php echo htmlspecialchars($post['netid']); ?></a> |
       <?php echo htmlspecialchars($post['date']); ?> |
       <?php echo htmlspecialchars($post['location']); ?> |
     </div>
-
     <div class="photo">
       <?php $file_url = '/public/uploads/posts/' . $post['id'] . '.' . $post['file_ext']; ?>
 
