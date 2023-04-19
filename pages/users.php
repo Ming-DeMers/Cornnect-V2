@@ -28,6 +28,12 @@ if (isset($_GET['netid'])) {
 <body>
   <?php include 'includes/header.php'; ?>
   <main>
+    <h2>Looking for a specific user?</h2>
+    <form id="tag_search" method="get" action="/user">
+      <input type="search" name="netid" placeholder="netid...">
+      <input type="submit">
+    </form>
+
     <div class="profile-grid">
 
       <?php

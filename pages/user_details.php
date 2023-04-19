@@ -25,32 +25,36 @@ $posts = exec_sql_query(
 <body>
 
   <?php include 'includes/header.php'; ?>
-  <div class="profile">
-    <div class="profile-details">
-      <?php
-      foreach ($user as $user) { ?>
-        <h2>More about <?php echo htmlspecialchars($user['name']); ?>
-        </h2>
-        <strong>Netid:</strong>
-        <?php echo htmlspecialchars($user['netid']); ?>
-        <strong>Year:</strong>
-        <?php echo htmlspecialchars($user['year']); ?>
-        <strong>Major</strong>
-        <?php echo htmlspecialchars($user['major']); ?>
-        <div class="photo">
-          <?php $file_url = '/public/uploads/users/' . $user['netid'] . '.' . 'jpg'; ?>
-          <img src="<?php echo htmlspecialchars($file_url); ?>" alt="<?php echo htmlspecialchars($user['netid'] . 'profile picture'); ?>">
-        </div>
-        <strong>Bio</strong>
-        <?php echo htmlspecialchars($user['bio']); ?>
+  <?php if (count($user) == 0) { ?>
+    <p>User not found!</p>
+  <?php } else { ?>
+    <div class="profile">
+      <div class="profile-details">
+        <?php
+        foreach ($user as $user) { ?>
+          <h2>More about <?php echo htmlspecialchars($user['name']); ?>
+          </h2>
+          <strong>Netid:</strong>
+          <?php echo htmlspecialchars($user['netid']); ?>
+          <strong>Year:</strong>
+          <?php echo htmlspecialchars($user['year']); ?>
+          <strong>Major</strong>
+          <?php echo htmlspecialchars($user['major']); ?>
+          <div class="photo">
+            <?php $file_url = '/public/uploads/users/' . $user['netid'] . '.' . 'jpg'; ?>
+            <img src="<?php echo htmlspecialchars($file_url); ?>" alt="<?php echo htmlspecialchars($user['netid'] . 'profile picture'); ?>">
+          </div>
+          <strong>Bio</strong>
+          <?php echo htmlspecialchars($user['bio']); ?>
+      </div>
+    <?php } ?>
+
+    <div class='profile-posts'>
+      <h2>Posts by <?php echo htmlspecialchars($user['name']); ?></h2>
+      <?php include 'includes/posts.php'; ?>
+    </div>
     </div>
   <?php } ?>
-
-  <div class='profile-posts'>
-    <h2>Posts by <?php echo htmlspecialchars($user['name']); ?></h2>
-    <?php include 'includes/posts.php'; ?>
-  </div>
-  </div>
 
 
 </body>

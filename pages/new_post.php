@@ -159,7 +159,7 @@ if (isset($_POST['add-post'])) {
             <input id="desc_field" type="text" name="desc" value="<?php echo $sticky_values['desc']; ?>">
           </div>
 
-          <div class=" add-button">
+          <div class="add-button">
             <input type="submit" value="Add post!" name="add-post">
           </div>
         </form>

@@ -6,6 +6,7 @@ $db = init_sqlite_db('db/site.sqlite', 'db/init.sql');
 
 const ROUTES = array(
   '/' => 'pages/home.php',
+  '/home' => 'pages/home.php',
   '/profile' => 'pages/profile.php',
   '/post' => 'pages/post_details.php',
   '/users' => 'pages/users.php',

@@ -54,7 +54,8 @@ $comments = exec_sql_query(
       <h3>Tags:</h3>
       <?php
       foreach ($tags as $tag) { ?>
-        <?php echo htmlspecialchars($tag['tag']); ?>
+        <a href="home?tag=<?php echo htmlspecialchars(($tag['tag'])); ?>"><?php echo htmlspecialchars($tag['tag']); ?></a>
+
     </div>
   <?php } ?>
 
@@ -63,7 +64,7 @@ $comments = exec_sql_query(
     <?php
     foreach ($comments as $comment) { ?>
       <div class="comment">
-      <a class="user-link" id="user-link-comment" href="/user?netid=<?php echo htmlspecialchars($comment['netid']); ?>"><?php echo htmlspecialchars($comment['netid']); ?></a>) <?php echo htmlspecialchars($comment['comment']); ?>
+        <a class="user-link" id="user-link-comment" href="/user?netid=<?php echo htmlspecialchars($comment['netid']); ?>"><?php echo htmlspecialchars($comment['netid']); ?></a>) <?php echo htmlspecialchars($comment['comment']); ?>
       </div>
     <?php } ?>
   </div>
