@@ -3,11 +3,121 @@ body {
   margin: 25px;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  justify-content: center;
   font-family: 'Courier New', Courier, monospace;
   color: #444;
   background-color: #e9d358;
 }
+
+header {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  position: sticky;
+  background-color: #a53724;
+  color: white;
+  border-radius: 10px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+  padding-bottom: 15px;
+}
+
+/* hide header when scrolling */
+header.hidden {
+  display: none;
+}
+
+header input {
+  margin: 10px;
+  border-radius: 5px;
+  border: none;
+  background-color: #a53724;
+  color: white;
+  padding: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+}
+
+footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  justify-content: center;
+  bottom: 0;
+  background-color: #a53724;
+  color: white;
+  border-radius: 10px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+  padding: 15px;
+}
+
+nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  justify-content: center;
+}
+
+nav button {
+  margin: 10px;
+  border-radius: 5px;
+  border: none;
+  background-color: #a53724;
+  color: white;
+  padding: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+}
+
+nav button:hover {
+  background-color: white;
+  color: #a53724;
+  cursor: pointer;
+
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  border: #a53724 solid 5px;
+  color: black;
+  border-radius: 0 10px 10px 0;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  padding: 15px;
+}
+
+.sidebar a {
+  color: black;
+}
+
+main {
+  display: flex;
+  flex-direction: row;
+  /* justify-content: center; */
+  /* align-items: start; */
+  /* width: 100%; */
+}
+
+main .sidebar {
+  display: flex;
+  margin-bottom: 5px;
+  height: fit-content;
+}
+
+main .feed {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+}
+
+
 
 .card {
   display: flex;
@@ -19,6 +129,8 @@ body {
   color: white;
   border-radius: 10px;
   padding: 15px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+
 }
 
 .user-link {

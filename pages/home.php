@@ -30,34 +30,29 @@ $posts = exec_sql_query(
   <title>Cornnect - Home</title>
 </head>
 
-<body>
-  <?php include 'includes/header.php'; ?>
-  <main>
-    <?php if (isset($tag_param)) { ?>
-      Posts with the tag: <strong><?php echo htmlspecialchars($tag_param) ?></strong>
-      <?php if (count($posts) == 0) { ?>
-        <p>No posts found!</p>
-      <?php } ?>
-    <?php } ?>
-    <div class="sort">
-      Sort by:
-      <?php $current_url = strstr($_SERVER['REQUEST_URI'], 'order=old', true);
-      if ($current_url == '') {
-        $current_url = $_SERVER['REQUEST_URI'];
-      }
-      if (str_contains($current_url, '?')) {
-        $operator = '&';
-      } ?>
-      <a href="<?php echo $current_url ?>">New First</a>
-      |
-      <a href="<?php echo $current_url ?><?php echo $operator ?>order=old">Old First</a>
-      <p>Clause: <?php echo $order_clause ?></p>
-      <p>URL: <?php echo $current_url ?></p>
-      <p>Op: <?php echo $operator ?></p>
 
+<body>
+  <header>
+    <?php include 'includes/header.php'; ?>
+  </header>
+  <main>
+    <div class="sidebar">
+      <?php include 'includes/sidebar.php'; ?>
     </div>
-    <?php include 'includes/posts.php'; ?>
+    <div class="feed">
+      <?php if (isset($tag_param)) { ?>
+        Posts with the tag: <strong><?php echo htmlspecialchars($tag_param) ?></strong>
+        <?php if (count($posts) == 0) { ?>
+          <p>No posts found!</p>
+        <?php } ?>
+      <?php } ?>
+      <?php include 'includes/posts.php'; ?>
+    </div>
+
   </main>
+  <footer>
+    <?php include 'includes/footer.php'; ?>
+  </footer>
 </body>
 
 </html>

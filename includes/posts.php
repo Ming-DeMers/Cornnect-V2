@@ -20,3 +20,4 @@ foreach ($posts as $post) { ?>
     </div>
   </div>
 <?php } ?>
+
