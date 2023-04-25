@@ -32,13 +32,9 @@ $posts = exec_sql_query(
 
 
 <body>
-  <header>
-    <?php include 'includes/header.php'; ?>
-  </header>
+  <?php include 'includes/header.php'; ?>
   <main>
-    <div class="sidebar">
-      <?php include 'includes/sidebar.php'; ?>
-    </div>
+    <?php include 'includes/sidebar.php'; ?>
     <div class="feed">
       <?php if (isset($tag_param)) { ?>
         Posts with the tag: <strong><?php echo htmlspecialchars($tag_param) ?></strong>
@@ -50,9 +46,7 @@ $posts = exec_sql_query(
     </div>
 
   </main>
-  <footer>
-    <?php include 'includes/footer.php'; ?>
-  </footer>
+  <?php include 'includes/footer.php'; ?>
 </body>
 
 </html>

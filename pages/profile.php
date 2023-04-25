@@ -11,8 +11,21 @@
 
 <body>
   <?php include 'includes/header.php'; ?>
-  <p>Nothing to see here yet...</p>
+  <!-- <?php include 'includes/login.php'; ?> -->
 
+  <?php
+  echo login_form('/profile', $session_messages);
+  if (is_user_logged_in()) {
+    echo 'User is logged in!';
+    if ($is_admin) {
+      echo 'User is an admin!';
+    }
+  }
+  ?>
+  Not a user?
+  <h3>Create an account</h3>
+  <?php echo signup_form('/profile', $session_messages);
+  ?>
 </body>
 
 </html>

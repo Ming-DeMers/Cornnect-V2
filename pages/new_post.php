@@ -117,7 +117,7 @@ if (isset($_POST['add-post'])) {
 </head>
 
 <body>
-  <?php include 'includes/header.php'; ?>
+    <?php include 'includes/header.php'; ?>
   <section>
     <div class="add-post">
 

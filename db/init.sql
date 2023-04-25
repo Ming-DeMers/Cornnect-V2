@@ -7,7 +7,32 @@ CREATE TABLE users (
   clubs TEXT,
   interests TEXT,
   bio TEXT,
+  username TEXT NOT NULL UNIQUE,
+  password TEXT NOT NULL,
   PRIMARY KEY(id AUTOINCREMENT)
+);
+
+CREATE TABLE sessions (
+  id INTEGER NOT NULL UNIQUE,
+  user_id INTEGER,
+  netid TEXT,
+  session TEXT NOT NULL UNIQUE,
+  last_login TEXT NOT NULL,
+  PRIMARY KEY(id AUTOINCREMENT) FOREIGN KEY (netid) REFERENCES users(netid)
+);
+
+CREATE TABLE groups (
+  id INTEGER NOT NULL UNIQUE,
+  name TEXT NOT NULL UNIQUE,
+  PRIMARY KEY(id AUTOINCREMENT)
+);
+
+CREATE TABLE user_groups (
+  id INTEGER NOT NULL UNIQUE,
+  netid INTEGER NOT NULL,
+  group_id INTEGER NOT NULL,
+  PRIMARY KEY(id AUTOINCREMENT) FOREIGN KEY(netid) REFERENCES users(netid),
+  FOREIGN KEY(group_id) REFERENCES groups(id)
 );
 
 CREATE TABLE posts (
@@ -38,7 +63,42 @@ CREATE TABLE tags (
 );
 
 INSERT INTO
-  users (name, netid, year, major, clubs, interests, bio)
+  users (
+    name,
+    netid,
+    year,
+    major,
+    clubs,
+    interests,
+    bio,
+    username,
+    password
+  )
+VALUES
+  (
+    'Johnny John Johnston',
+    'jjj45',
+    2011,
+    'IT@Cornell',
+    '',
+    'Coding',
+    'I am ur admin.',
+    'jjj45',
+    '$2y$10$QtCybkpkzh7x5VN11APHned4J8fu78.eFXlyAMmahuAaNcbwZ7FH.'
+  );
+
+INSERT INTO
+  users (
+    name,
+    netid,
+    year,
+    major,
+    clubs,
+    interests,
+    bio,
+    username,
+    password
+  )
 VALUES
   (
     'Ming DeMers',
@@ -47,11 +107,23 @@ VALUES
     'InfoSci',
     'CAC',
     'Coding',
-    'I made this site lol.'
+    'I made this site lol.',
+    'mtd64',
+    '$2y$10$QtCybkpkzh7x5VN11APHned4J8fu78.eFXlyAMmahuAaNcbwZ7FH.'
   );
 
 INSERT INTO
-  users (name, netid, year, major, clubs, interests, bio)
+  users (
+    name,
+    netid,
+    year,
+    major,
+    clubs,
+    interests,
+    bio,
+    username,
+    password
+  )
 VALUES
   (
     'Ezra Cornell',
@@ -60,8 +132,21 @@ VALUES
     'Biology',
     NULL,
     NULL,
-    "I'm the woman, not the founder!"
+    "I'm the woman, not the founder!",
+    'ez455',
+    '$2y$10$QtCybkpkzh7x5VN11APHned4J8fu78.eFXlyAMmahuAaNcbwZ7FH.'
   );
+
+INSERT INTO
+  groups (id, name)
+VALUES
+  (1, 'admin');
+
+-- user Johnny John Johnston is in admin group
+INSERT INTO
+  user_groups (netid, group_id)
+VALUES
+  ('jjj45', 1);
 
 INSERT INTO
   posts (netid, date, location, desc, file_name, file_ext)

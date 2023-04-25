@@ -42,7 +42,7 @@ $comments = exec_sql_query(
           <?php echo htmlspecialchars($post['location']); ?>,
           <?php echo htmlspecialchars($post['date']); ?></h3>
       </div>
-      <div class="photo">
+      <div class="post-photo">
         <?php $file_url = '/public/uploads/posts/' . $post['id'] . '.' . $post['file_ext']; ?>
         <img src="<?php echo htmlspecialchars($file_url); ?>" alt="<?php echo htmlspecialchars($record['file_name']); ?>">
       </div>
