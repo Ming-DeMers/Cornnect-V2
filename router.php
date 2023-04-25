@@ -23,6 +23,7 @@ const ROUTES = array(
   '/user' => 'pages/user_details.php',
   '/login' => 'pages/login.php',
   '/new_post' => 'pages/new_post.php',
+  '/signup' => 'pages/signup.php',
 );
 
 function match_static($uri)

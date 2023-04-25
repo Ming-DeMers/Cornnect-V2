@@ -79,7 +79,33 @@ nav button:hover {
   background-color: white;
   color: #a53724;
   cursor: pointer;
+}
 
+nav form input {
+  box-shadow: none;
+}
+
+nav form #search-box {
+  color: white;
+  border: #444 solid 1px;
+  border-color: white;
+}
+
+nav .nav-pages {
+  display: flex;
+  flex-direction: row;
+  align-items: start;
+  justify-content: start;
+}
+
+::placeholder {
+  color: white;
+}
+
+nav form #search-button:hover {
+  background-color: white;
+  color: #a53724;
+  cursor: pointer;
 }
 
 aside {
@@ -100,9 +126,10 @@ aside a {
 main {
   display: flex;
   flex-direction: row;
-  /* justify-content: center; */
-  /* align-items: start; */
-  /* width: 100%; */
+  margin-top: 35px;
+  margin-left: 500px;
+  margin-right: 500px;
+  min-height: 85vh;
 }
 
 main aside {
@@ -117,7 +144,32 @@ main .feed {
   margin: auto;
 }
 
+#users-grid {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-left: 5px;
+  margin-right: 5px;
+}
 
+#users-grid .card {
+  display: flex;
+  width: 200px;
+  height: min-content;
+  border: #a53724 solid 5px;
+  background-color: #a53724;
+  color: white;
+  border-radius: 10px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+}
+
+#users-grid img {
+  display: flex;
+  border-radius: 5px;
+  max-width: 150px;
+  height: auto;
+}
 
 .card {
   display: flex;
@@ -182,7 +234,7 @@ main .feed {
 }
 
 .profile-details img {
-  width: 750px;
+  width: 400px;
   border-radius: 10px;
 }
 

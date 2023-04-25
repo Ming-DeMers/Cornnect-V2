@@ -34,41 +34,41 @@ $comments = exec_sql_query(
 
 <body>
   <?php include 'includes/header.php'; ?>
-  <div class="details">
-
-    <?php foreach ($post as $post) { ?>
-      <div class="head">
-        <h3>Posted by <a class="user-link" id="user-link-post-details" href="/user?netid=<?php echo htmlspecialchars($post['netid']); ?>"><?php echo htmlspecialchars($post['netid']); ?></a>, at
-          <?php echo htmlspecialchars($post['location']); ?>,
-          <?php echo htmlspecialchars($post['date']); ?></h3>
-      </div>
-      <div class="post-photo">
-        <?php $file_url = '/public/uploads/posts/' . $post['id'] . '.' . $post['file_ext']; ?>
-        <img src="<?php echo htmlspecialchars($file_url); ?>" alt="<?php echo htmlspecialchars($record['file_name']); ?>">
-      </div>
-      <div class="desc">
-        <ul><?php echo htmlspecialchars($post["desc"]); ?></ul>
+  <main>
+    <div class="details">
+      <?php foreach ($post as $post) { ?>
+        <div class="head">
+          <h3>Posted by <a class="user-link" id="user-link-post-details" href="/user?netid=<?php echo htmlspecialchars($post['netid']); ?>"><?php echo htmlspecialchars($post['netid']); ?></a>, at
+            <?php echo htmlspecialchars($post['location']); ?>,
+            <?php echo htmlspecialchars($post['date']); ?></h3>
+        </div>
+        <div class="post-photo">
+          <?php $file_url = '/public/uploads/posts/' . $post['id'] . '.' . $post['file_ext']; ?>
+          <img src="<?php echo htmlspecialchars($file_url); ?>" alt="<?php echo htmlspecialchars($record['file_name']); ?>">
+        </div>
+        <div class="desc">
+          <ul><?php echo htmlspecialchars($post["desc"]); ?></ul>
+        </div>
+      <?php } ?>
+      <div class="tags">
+        <h3>Tags:</h3>
+        <?php
+        foreach ($tags as $tag) { ?>
+          <a href="home?tag=<?php echo htmlspecialchars(($tag['tag'])); ?>"><?php echo htmlspecialchars($tag['tag']); ?></a>
       </div>
     <?php } ?>
-    <div class="tags">
-      <h3>Tags:</h3>
+    <div class="comments">
+      <h3>Comments:</h3>
       <?php
-      foreach ($tags as $tag) { ?>
-        <a href="home?tag=<?php echo htmlspecialchars(($tag['tag'])); ?>"><?php echo htmlspecialchars($tag['tag']); ?></a>
-
+      foreach ($comments as $comment) { ?>
+        <div class="comment">
+          <a class="user-link" id="user-link-comment" href="/user?netid=<?php echo htmlspecialchars($comment['netid']); ?>"><?php echo htmlspecialchars($comment['netid']); ?></a>) <?php echo htmlspecialchars($comment['comment']); ?>
+        </div>
+      <?php } ?>
     </div>
-  <?php } ?>
+  </main>
 
-  <div class="comments">
-    <h3>Comments:</h3>
-    <?php
-    foreach ($comments as $comment) { ?>
-      <div class="comment">
-        <a class="user-link" id="user-link-comment" href="/user?netid=<?php echo htmlspecialchars($comment['netid']); ?>"><?php echo htmlspecialchars($comment['netid']); ?></a>) <?php echo htmlspecialchars($comment['comment']); ?>
-      </div>
-    <?php } ?>
-  </div>
-
+  <?php include 'includes/footer.php'; ?>
 
 </body>
 

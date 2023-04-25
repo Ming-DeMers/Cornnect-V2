@@ -11,15 +11,15 @@
 <body>
 
   <?php include 'includes/header.php'; ?>
-
-  <div class="body" id="error-page">
-    <h2>Oops! Looks like you got lost in the Corn Maze!</h2>
-    <h3>You can:</h3>
-
-    <a href="/"><button>Go Home</button></a>
-    <a href="javascript:history.go(-1)"><button>Go Back</button></a>
-
-  </div>
+  <main>
+    <div class="body" id="error-page">
+      <h2>Oops! Looks like you got lost in the Corn Maze!</h2>
+      <h3>You can:</h3>
+      <a href="/"><button>Go Home</button></a>
+      <a href="javascript:history.go(-1)"><button>Go Back</button></a>
+    </div>
+  </main>
+  <?php include 'includes/footer.php'; ?>
 </body>
 
 </html>

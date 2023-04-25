@@ -117,66 +117,61 @@ if (isset($_POST['add-post'])) {
 </head>
 
 <body>
-    <?php include 'includes/header.php'; ?>
-  <section>
-    <div class="add-post">
-
-      <h2>Add new post!</h2>
-      <?php if ($show_form) { ?>
-        <form method="post" action="/new_post" enctype="multipart/form-data" novalidate>
-          <p class="feedback <?php echo $form_feedback_classes['netid']; ?>">Please provide your netID</p>
-          <div class="label-input">
-            <label for="netid_field">netID:</label>
-            <input id="netid_field" type="text" name="netid" value="<?php echo $sticky_values['netid']; ?>">
-          </div>
-
-          <p class="feedback <?php echo $form_feedback_classes['location']; ?>">Where are you?</p>
-          <div class="label-input">
-            <label for="location_field">Location:</label>
-            <input id="location_field" type="text" name="location" value="<?php echo $sticky_values['location']; ?>">
-          </div>
-
-
-          <input type="hidden" name="MAX_FILE_SIZE" value="<?php echo MAX_FILE_SIZE; ?>">
-
-          <?php if ($upload_feedback['too_large']) { ?>
-            <p class="feedback">Files must be less than 1MB.</p>
-          <?php } ?>
-          <?php if ($upload_feedback['type_error']) { ?>
-            <p class="feedback">We only accept jpg or img files.</p>
-          <?php } ?>
-          <?php if ($upload_feedback['general_error']) { ?>
-            <p class="feedback">Please provide an image.</p>
-          <?php } ?>
-
-          <div class="label-input">
-            <label for="upload-file">Image:</label>
-            <input id="upload-file" type="file" name="image">
-          </div>
-
-          <div class="label-input">
-            <label for="desc_field">Description:</label>
-            <input id="desc_field" type="text" name="desc" value="<?php echo $sticky_values['desc']; ?>">
-          </div>
-
-          <div class="add-button">
-            <input type="submit" value="Add post!" name="add-post">
-          </div>
-        </form>
-    </div>
-  </section>
-
-<?php } ?>
-
-<?php if ($show_confirmation) { ?>
-  <div class="confirmation">
+  <?php include 'includes/header.php'; ?>
+  <main>
     <section>
-      <h3>Post Pubbed!</h3>
-      <p>Thank you <?php echo htmlspecialchars($form_values['netid']); ?>. Your post has been added! You used the photo <?php echo htmlspecialchars($upload_file_name); ?> with the extension <?php echo htmlspecialchars($upload_file_ext); ?></p>
-      <?php $show_form = FALSE ?>
+      <div class="add-post">
+        <h2>Add new post!</h2>
+        <?php if ($show_form) { ?>
+          <form method="post" action="/new_post" enctype="multipart/form-data" novalidate>
+            <p class="feedback <?php echo $form_feedback_classes['netid']; ?>">Please provide your netID</p>
+            <div class="label-input">
+              <label for="netid_field">netID:</label>
+              <input id="netid_field" type="text" name="netid" value="<?php echo $sticky_values['netid']; ?>">
+            </div>
+            <p class="feedback <?php echo $form_feedback_classes['location']; ?>">Where are you?</p>
+            <div class="label-input">
+              <label for="location_field">Location:</label>
+              <input id="location_field" type="text" name="location" value="<?php echo $sticky_values['location']; ?>">
+            </div>
+            <input type="hidden" name="MAX_FILE_SIZE" value="<?php echo MAX_FILE_SIZE; ?>">
+            <?php if ($upload_feedback['too_large']) { ?>
+              <p class="feedback">Files must be less than 1MB.</p>
+            <?php } ?>
+            <?php if ($upload_feedback['type_error']) { ?>
+              <p class="feedback">We only accept jpg or img files.</p>
+            <?php } ?>
+            <?php if ($upload_feedback['general_error']) { ?>
+              <p class="feedback">Please provide an image.</p>
+            <?php } ?>
+            <div class="label-input">
+              <label for="upload-file">Image:</label>
+              <input id="upload-file" type="file" name="image">
+            </div>
+            <div class="label-input">
+              <label for="desc_field">Description:</label>
+              <input id="desc_field" type="text" name="desc" value="<?php echo $sticky_values['desc']; ?>">
+            </div>
+            <div class="add-button">
+              <input type="submit" value="Add post!" name="add-post">
+            </div>
+          </form>
+      </div>
     </section>
-  </div>
-<?php } ?>
+
+  <?php } ?>
+
+  <?php if ($show_confirmation) { ?>
+    <div class="confirmation">
+      <section>
+        <h3>Post Pubbed!</h3>
+        <p>Thank you <?php echo htmlspecialchars($form_values['netid']); ?>. Your post has been added! You used the photo <?php echo htmlspecialchars($upload_file_name); ?> with the extension <?php echo htmlspecialchars($upload_file_ext); ?></p>
+        <?php $show_form = FALSE ?>
+      </section>
+    </div>
+  <?php } ?>
+  </main>
+  <?php include 'includes/footer.php'; ?>
 </body>
 
 

@@ -312,7 +312,7 @@ function process_login_params($db, &$messages)
 }
 
 // function to create user account
-function create_account($db, $name, $netid, $password, $password_confirmation)
+function create_account($db, $name, $netid, $password, $password_confirmation, $year, $major)
 {
   global $signup_messages;
 
@@ -322,6 +322,8 @@ function create_account($db, $name, $netid, $password, $password_confirmation)
   $name = trim($name);
   $netid = trim($netid);
   $password = trim($password);
+  $year = trim($year);
+  $major = trim($major);
   $password_confirmation = trim($password_confirmation);
 
   $sticky_signup_netid = $netid;
@@ -349,7 +351,6 @@ function create_account($db, $name, $netid, $password, $password_confirmation)
     }
   }
 
-  // TODO: check if password meets security requirements.
   if (empty($password)) {
     $account_valid = False;
     array_push($signup_messages, "Please provide a password.");
@@ -367,11 +368,13 @@ function create_account($db, $name, $netid, $password, $password_confirmation)
   if ($account_valid) {
     $result = exec_sql_query(
       $db,
-      "INSERT INTO users (name, netid, password) VALUES (:name, :netid, :password);",
+      "INSERT INTO users (name, netid, password, year, major) VALUES (:name, :netid, :password, :year, :major);",
       array(
         ':name' => $name,
         ':netid' => $netid,
-        ':password' => $hashed_password
+        ':password' => $hashed_password,
+        ':year' => $year,
+        ':major' => $major
       )
     );
     if ($result) {
@@ -420,6 +423,16 @@ function signup_form($action, $signup_messages)
       <input id="confirm_password" type="password" name="signup_confirm_password" required />
     </div>
 
+    <div class="label-input">
+      <label for="year">Year:</label>
+      <input id="year" type="number" name="signup_number" required />
+    </div>
+
+    <div class="label-input">
+      <label for="major">Major:</label>
+      <input id="major" type="text" name="signup_major" required />
+    </div>
+
     <div class="align-right">
       <button name="signup" type="submit">Sign Up</button>
     </div>
@@ -435,6 +448,6 @@ function process_signup_params($db)
 {
   // Check if we should login the user
   if (isset($_POST['signup'])) {
-    create_account($db, $_POST['signup_name'], $_POST['signup_netid'], $_POST['signup_password'], $_POST['signup_confirm_password']);
+    create_account($db, $_POST['signup_name'], $_POST['signup_netid'], $_POST['signup_password'], $_POST['signup_confirm_password'], $_POST['signup_year'], $_POST['signup_major']);
   }
 }

@@ -1,3 +1,15 @@
+<?php
+if (is_user_logged_in()) {
+  $user = exec_sql_query(
+    $db,
+    "SELECT * FROM users WHERE users.netid = " . "'" . $current_user['netid'] . "'" . ";"
+  )->fetchAll();
+  $posts = exec_sql_query(
+    $db,
+    "SELECT * FROM posts WHERE posts.netid = " . "'" . $current_user['netid'] . "'" . ";"
+  )->fetchAll();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,21 +23,48 @@
 
 <body>
   <?php include 'includes/header.php'; ?>
-  <!-- <?php include 'includes/login.php'; ?> -->
 
-  <?php
-  echo login_form('/profile', $session_messages);
-  if (is_user_logged_in()) {
-    echo 'User is logged in!';
-    if ($is_admin) {
-      echo 'User is an admin!';
-    }
-  }
-  ?>
-  Not a user?
-  <h3>Create an account</h3>
-  <?php echo signup_form('/profile', $session_messages);
-  ?>
+  <main>
+    <?php if (!is_user_logged_in()) {
+      include 'includes/login.php';
+    } else { ?>
+
+      <?php if (count($user) == 0) { ?>
+        <p>User not found!</p>
+      <?php } else { ?>
+        <div class="profile">
+          <div class="profile-details">
+            <?php
+            foreach ($user as $user) { ?>
+              <h2>More about <?php echo htmlspecialchars($user['name']); ?>
+              </h2>
+              <strong>Netid:</strong>
+              <?php echo htmlspecialchars($user['netid']); ?>
+              <strong>Year:</strong>
+              <?php echo htmlspecialchars($user['year']); ?>
+              <strong>Major</strong>
+              <?php echo htmlspecialchars($user['major']); ?>
+              <div class="photo">
+                <?php $file_url = '/public/uploads/users/' . $user['netid'] . '.' . 'jpg'; ?>
+                <img src="<?php echo htmlspecialchars($file_url); ?>" alt="<?php echo htmlspecialchars($user['netid'] . 'profile picture'); ?>">
+              </div>
+              <strong>Bio</strong>
+              <?php echo htmlspecialchars($user['bio']); ?>
+          </div>
+        <?php } ?>
+
+        <div class='profile-posts'>
+          <h2>Posts by <?php echo htmlspecialchars($user['name']); ?></h2>
+          <?php include 'includes/posts.php'; ?>
+        </div>
+        </div>
+      <?php } ?>
+    <?php }
+    ?>
+  </main>
+    <?php include 'includes/footer.php'; ?>
+
+
 </body>
 
 </html>
