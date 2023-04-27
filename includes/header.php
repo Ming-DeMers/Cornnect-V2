@@ -23,7 +23,7 @@
             <button>Sign Out</button></a>
           <?php
           if ($is_admin) {
-            echo "ADMIN IN"; ?>
+            echo "ADMIN MODE ENABLED"; ?>
           <?php }
         } else { ?>
           <a href="/profile"><button>Log in!</button></a>

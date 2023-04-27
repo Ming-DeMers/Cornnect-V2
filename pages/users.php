@@ -1,15 +1,19 @@
 <?php
+$logged_in = false;
 // query the db
-if (isset($_GET['netid'])) {
-  $users = exec_sql_query(
-    $db,
-    "SELECT * FROM users WHERE users.id = " . $_GET['netid'] . ";"
-  )->fetchAll();
-} else {
-  $users = exec_sql_query(
-    $db,
-    "SELECT * FROM users;"
-  )->fetchAll();
+if (is_user_logged_in()) {
+  $logged_in = true;
+  if (isset($_GET['netid'])) {
+    $users = exec_sql_query(
+      $db,
+      "SELECT * FROM users WHERE users.id = " . $_GET['netid'] . ";"
+    )->fetchAll();
+  } else {
+    $users = exec_sql_query(
+      $db,
+      "SELECT * FROM users;"
+    )->fetchAll();
+  }
 }
 ?>
 
@@ -28,33 +32,37 @@ if (isset($_GET['netid'])) {
 <body>
   <?php include 'includes/header.php'; ?>
   <main id="users-grid">
-
-    <div class="profile-grid">
-      <!-- <h2>Looking for a specific user?</h2>
+    <?php if ($logged_in) { ?>
+      <div class="profile-grid">
+        <!-- <h2>Looking for a specific user?</h2>
       <form id="tag_search" method="get" action="/user">
         <input type="search" name="netid" placeholder="netid...">
         <input type="submit"> -->
-      </form>
+        </form>
 
-      <?php
-      foreach ($users as $user) { ?>
-        <div class="card" id="profile-card">
-          <div class="head">
-            <?php echo htmlspecialchars($user['name']); ?> |
-            <?php echo htmlspecialchars($user['netid']); ?> |
-            <?php echo htmlspecialchars($user['year']); ?> |
+        <?php
+        foreach ($users as $user) { ?>
+          <div class="card" id="profile-card">
+            <div class="head">
+              <?php echo htmlspecialchars($user['name']); ?> |
+              <?php echo htmlspecialchars($user['netid']); ?> |
+              <?php echo htmlspecialchars($user['year']); ?> |
+            </div>
+            <div class="card-photo">
+              <?php $file_url = '/public/uploads/users/' . $user['netid'] . '.' . 'jpg'; ?>
+              <a href="/user? netid=<?php echo htmlspecialchars($user['netid']); ?>">
+                <img src="<?php echo htmlspecialchars($file_url); ?>" alt="<?php echo htmlspecialchars($user['netid'] . 'profile picture'); ?>">
+              </a>
+            </div>
           </div>
-          <div class="card-photo">
-            <?php $file_url = '/public/uploads/users/' . $user['netid'] . '.' . 'jpg'; ?>
-            <a href="/user? netid=<?php echo htmlspecialchars($user['netid']); ?>">
-              <img src="<?php echo htmlspecialchars($file_url); ?>" alt="<?php echo htmlspecialchars($user['netid'] . 'profile picture'); ?>">
-            </a>
-          </div>
-        </div>
-      <?php } ?>
-    </div>
-
-
+        <?php } ?>
+      </div>
+    <?php } else { ?>
+      <div class="modal">
+        <h2>Log in to view users!</h2>
+      <?php include 'includes/login.php';
+    } ?>
+      </div>
   </main>
 
 

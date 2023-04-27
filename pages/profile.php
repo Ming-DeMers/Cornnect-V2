@@ -25,10 +25,14 @@ if (is_user_logged_in()) {
   <?php include 'includes/header.php'; ?>
 
   <main>
-    <?php if (!is_user_logged_in()) {
-      include 'includes/login.php';
+    <?php if (!is_user_logged_in()) { ?>
+      <div class="modal">
+        <h2>Welcome to Cornnect!</h2>
+        <?php
+        include 'includes/login.php'; ?>
+      </div>
+    <?php
     } else { ?>
-
       <?php if (count($user) == 0) { ?>
         <p>User not found!</p>
       <?php } else { ?>
@@ -62,7 +66,7 @@ if (is_user_logged_in()) {
     <?php }
     ?>
   </main>
-    <?php include 'includes/footer.php'; ?>
+  <?php include 'includes/footer.php'; ?>
 
 
 </body>
