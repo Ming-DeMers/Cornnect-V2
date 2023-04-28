@@ -35,7 +35,7 @@ if (is_user_logged_in()) {
           <div class="profile-details">
             <?php
             foreach ($user as $user) { ?>
-              <h2>More about <?php echo htmlspecialchars($user['name']); ?>
+              <h2><?php echo htmlspecialchars($user['name']); ?>
               </h2>
               <strong>Netid:</strong>
               <?php echo htmlspecialchars($user['netid']); ?>
@@ -52,7 +52,6 @@ if (is_user_logged_in()) {
           </div>
         <?php } ?>
         <div class='profile-posts'>
-          <h2>Posts by <?php echo htmlspecialchars($user['name']); ?></h2>
           <?php include 'includes/posts.php'; ?>
         </div>
         </div>

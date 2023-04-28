@@ -1,10 +1,9 @@
 body {
-  font-family: serif;
+  font-family: sans-serif;
   margin: 25px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  font-family: 'Courier New', Courier, monospace;
   color: #444;
   background-color: #e9d358;
   margin: 15px;
@@ -263,6 +262,32 @@ main .feed {
   flex-direction: column;
 }
 
+.profile-details {
+  display: flex;
+  flex-direction: column;
+  background-color: #a53724;
+  border-radius: 10px;
+  padding: 25px;
+  color: white;
+  height: max-content;
+  margin: 25px;
+}
+
+.profile-details p {
+  margin: 15px;
+}
+
+
+.profile-details img {
+  width: 400px;
+  border-radius: 10px;
+  margin-top: 15px;
+}
+
+.profile-details strong {
+  margin-top: 15px;
+}
+
 .profile-grid {
   display: flex;
   flex-direction: row;
@@ -299,16 +324,6 @@ main .feed {
 .profile {
   display: flex;
   flex-direction: row;
-}
-
-.profile-details img {
-  width: 400px;
-  border-radius: 10px;
-}
-
-.profile-details {
-  display: flex;
-  flex-direction: column;
 }
 
 .post-photo img {
