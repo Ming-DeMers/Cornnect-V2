@@ -3,8 +3,12 @@ $logged_in = false;
 
 function format_date($date_string)
 {
-  $date = DateTime::createFromFormat('Ymd', $date_string);
-  return $date->format('M, d, Y');
+  if (preg_match('/^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}$/', $date_string)) {
+    $date = DateTime::createFromFormat('Y-m-d H:i:s', $date_string);
+  } else {
+    $date = DateTime::createFromFormat('Ymd', $date_string);
+  }
+  return $date->format('M d Y');
 }
 
 if (is_user_logged_in()) {

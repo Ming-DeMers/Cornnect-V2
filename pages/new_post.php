@@ -45,6 +45,7 @@ if (isset($_POST['add-post'])) {
   $form_values['netid'] = $current_user['netid'];
   $form_values['location'] = trim($_POST['location']);
   $form_values['desc'] = trim($_POST['desc']);
+  $form_values['tags'] = trim($_POST['tag']);
 
   // get the info about the uploaded files.
   $upload = $_FILES['image'];
@@ -56,19 +57,21 @@ if (isset($_POST['add-post'])) {
     $form_feedback_classes['location'] = '';
   }
 
+
   if ($upload['error'] == UPLOAD_ERR_OK) {
     $upload_file_name = basename($upload['name']);
     $upload_file_ext = strtolower(pathinfo($upload_file_name, PATHINFO_EXTENSION));
-  } else if (($upload['error'] == UPLOAD_ERR_INI_SIZE) || ($upload['error'] == UPLOAD_ERR_FORM_SIZE)) {
-    $form_valid = False;
-    $upload_feedback['too_large'] = True;
-  } else if (!in_array($upload_file_ext, array("jpg"))) {
-    $form_valid = False;
-    $upload_feedback['type_error'] = True;
   } else {
-    // upload was not successful
     $form_valid = False;
     $upload_feedback['general_error'] = True;
+  }
+  if (($upload['error'] == UPLOAD_ERR_INI_SIZE) || ($upload['error'] == UPLOAD_ERR_FORM_SIZE)) {
+    $form_valid = False;
+    $upload_feedback['too_large'] = True;
+    // ensure the field is a jpg
+  } else if ($upload_file_ext != 'jpg') {
+    $form_valid = False;
+    $upload_feedback['type_error'] = True;
   }
 
   // show confirmation if form is valid, otherwise set sticky values and echo them
@@ -85,6 +88,7 @@ if (isset($_POST['add-post'])) {
         'file_ext' => $upload_file_ext
       )
     );
+    // parse a string by its hashtags into a list
     $retry_form = False;
     $show_confirmation = True;
     $show_form = False;
@@ -93,10 +97,34 @@ if (isset($_POST['add-post'])) {
     if (move_uploaded_file($upload["tmp_name"], $upload_storage_path) == False) {
       error_log("Failed to permanently store the uploaded file on the file server. Please check that the server folder exists.");
     }
+    $tags_list = explode("#", $_POST['tag']);
+    //remove spaces from the tags
+    foreach ($tags_list as $tag) {
+      $tag = trim($tag);
+    }
+    // remove the first element in the list
+    array_shift($tags_list);
+    $post_id = $db->lastInsertId('id');
+    $tags = exec_sql_query(
+      $db,
+      "SELECT * FROM tags;"
+    )->fetchAll();
+    // for each tag, insert it into the tags table and associate it to the post
+    foreach ($tags_list as $tag) {
+      exec_sql_query(
+        $db,
+        "INSERT INTO tags (post_id, tag) VALUES (:post_id, :tag);",
+        array(
+          ':post_id' => $post_id,
+          ':tag' => $tag
+        )
+      );
+    }
   } else {
     $retry_form = True;
     $sticky_values['location'] = $form_values['location'];
     $sticky_values['desc'] = $form_values['desc'];
+    $sticky_values['tags'] = $form_values['tags'];
   }
 }
 ?>
@@ -144,21 +172,24 @@ if (isset($_POST['add-post'])) {
                 <label for="desc_field">Description:</label>
                 <input id="desc_field" type="text" name="desc" value="<?php echo $sticky_values['desc']; ?>">
               </div>
+              <!-- input to allow inserting of tags -->
+              <div class="label-input">
+                <label for="tag_field">Tags (hashtag seperated):</label>
+                <input id="tag_field" type="text" name="tag">
+              </div>
               <div class="add-button">
                 <input type="submit" value="Add post!" name="add-post">
               </div>
             </form>
         </div>
       </section>
-
     <?php } ?>
-
     <?php if ($show_confirmation) { ?>
       <div class="confirmation">
         <section>
           <h3>Post Pubbed!</h3>
-          <p>Thank you <?php echo htmlspecialchars($current_user['name']); ?>. Your post has been added! You used the photo <?php echo htmlspecialchars($upload_file_name); ?> with the extension <?php echo htmlspecialchars($upload_file_ext); ?></p>
-          <?php $show_form = FALSE ?>
+          <p>Thank you <?php echo htmlspecialchars($current_user['name']); ?>. Your post has been added! <?php echo $upload_file_ext ?>
+          <p><a href="/post?id=<?php echo htmlspecialchars($post_id); ?>">See the post...</a></p>
         </section>
       </div>
     <?php } ?>

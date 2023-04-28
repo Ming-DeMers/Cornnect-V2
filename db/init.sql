@@ -365,3 +365,138 @@ INSERT INTO
   tags (post_id, tag)
 VALUES
   (3, 'The Bardo');
+
+INSERT INTO
+  tags (post_id, tag)
+VALUES
+  (3, 'stuck');
+
+INSERT INTO
+  tags (post_id, tag)
+VALUES
+  (4, 'Feeney Way');
+
+INSERT INTO
+  tags (post_id, tag)
+VALUES
+  (4, 'Dragon Day');
+
+INSERT INTO
+  tags (post_id, tag)
+VALUES
+  (5, 'Temple of Zeus');
+
+INSERT INTO
+  tags (post_id, tag)
+VALUES
+  (5, 'Dragon Day');
+
+INSERT INTO
+  tags (post_id, tag)
+VALUES
+  (6, 'McGraw Tower');
+
+INSERT INTO
+  tags (post_id, tag)
+VALUES
+  (6, 'Temple of Zeus');
+
+INSERT INTO
+  tags (post_id, tag)
+VALUES
+  (7, 'Libe Slope');
+
+INSERT INTO
+  tags (post_id, tag)
+VALUES
+  (7, 'sunset');
+
+INSERT INTO
+  tags (post_id, tag)
+VALUES
+  (8, 'Lincoln Hall');
+
+INSERT INTO
+  tags (post_id, tag)
+VALUES
+  (8, 'concert');
+
+INSERT INTO
+  tags (post_id, tag)
+VALUES
+  (9, 'Lynah Rink');
+
+INSERT INTO
+  tags (post_id, tag)
+VALUES
+  (9, 'hockey');
+
+INSERT INTO
+  tags (post_id, tag)
+VALUES
+  (9, 'big red');
+
+INSERT INTO
+  tags (post_id, tag)
+VALUES
+  (10, 'Ho Plaza');
+
+INSERT INTO
+  tags (post_id, tag)
+VALUES
+  (10, 'cold');
+
+INSERT INTO
+  tags (post_id, tag)
+VALUES
+  (10, 'snow');
+
+INSERT INTO
+  tags (post_id, tag)
+VALUES
+  (11, 'Lindseth Climbing Center');
+
+INSERT INTO
+  tags (post_id, tag)
+VALUES
+  (11, 'rock climbing');
+
+INSERT INTO
+  tags (post_id, tag)
+VALUES
+  (11, 'rocks');
+
+INSERT INTO
+  tags (post_id, tag)
+VALUES
+  (12, 'Big Red Barn');
+
+INSERT INTO
+  tags (post_id, tag)
+VALUES
+  (12, 'chocolate');
+
+INSERT INTO
+  tags (post_id, tag)
+VALUES
+  (13, 'Libe Slope');
+
+INSERT INTO
+  tags (post_id, tag)
+VALUES
+  (13, 'sledding');
+
+INSERT INTO
+  tags (post_id, tag)
+VALUES
+  (14, 'Libe Slope');
+
+INSERT INTO
+  tags (post_id, tag)
+VALUES
+  (14, 'hammocking');
+
+INSERT INTO
+  tags (post_id, tag)
+VALUES
+  (14, 'friends');

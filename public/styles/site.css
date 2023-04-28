@@ -7,6 +7,7 @@ body {
   font-family: 'Courier New', Courier, monospace;
   color: #444;
   background-color: #e9d358;
+  margin: 15px;
 }
 
 header {

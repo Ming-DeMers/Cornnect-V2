@@ -15,6 +15,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       "DELETE FROM comments WHERE comments.post_id = " . $post_id,
     );
   }
+  //redirect to home page
+  header("Location: /home");
+  echo ('Post sucessfully deleted.');
+  exit();
 }
 ?>
 <form method="post">
