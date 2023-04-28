@@ -10,6 +10,14 @@ body {
   margin: 15px;
 }
 
+a {
+  color: white;
+}
+
+a:visited {
+  color: white;
+}
+
 header {
   display: flex;
   flex-direction: column;
@@ -124,6 +132,10 @@ aside a {
   color: black;
 }
 
+aside a:visited {
+  color: black
+}
+
 main {
   display: flex;
   flex-direction: row;
@@ -190,11 +202,66 @@ main .feed {
   color: white;
 }
 
+#post_details {
+  display: flex;
+  flex-direction: column;
+}
+
+#post_details a {
+  color: black;
+}
+
+#post_details a:visited {
+  color: black;
+}
+
+.add-post {
+  margin: 15px;
+  padding: 15px;
+}
+
+.add-post input {
+  margin: 5px;
+}
+
+.add-post .add-button {
+  /* alight right */
+  justify-content: end;
+}
+
 #user-link-post-details,
 #user-link-comment {
   color: black;
 }
 
+#tag-results {
+  margin-left: 55px;
+}
+
+.confirmation {
+  color: black;
+}
+
+.confirmation a {
+  color: black;
+}
+
+.confirmation a:visited {
+  color: black;
+}
+
+.tags a {
+  color: black;
+}
+
+.tags a:visited {
+  color: black;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+}
 
 .profile-grid {
   display: flex;
@@ -276,8 +343,6 @@ main .feed {
   text-decoration: none;
   cursor: pointer;
 }
-
-.profile-posts a {}
 
 .hidden {
   display: none;

@@ -10,7 +10,9 @@
       <div class="nav-search">
         <search-box>
           <form id="tag_search" method="get" action="/">
+            <label for="search-box">|</label>
             <input type="search" id="search-box" name="tag" placeholder="Search for a tag...">
+            <label for="search-button">-></label>
             <input type="submit" id="search-button" value="Search">
           </form>
         </search-box>

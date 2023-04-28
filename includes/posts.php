@@ -18,7 +18,7 @@ foreach ($posts as $post) { ?>
     <div class="photo">
       <?php $file_url = '/public/uploads/posts/' . $post['id'] . '.' . $post['file_ext']; ?>
       <a href="/post?id=<?php echo htmlspecialchars($post['id']); ?>">
-        <img src="<?php echo htmlspecialchars($file_url); ?>" alt="<?php echo htmlspecialchars($record['file_name']); ?>">
+        <img src="<?php echo htmlspecialchars($file_url); ?>" alt="post<?php echo htmlspecialchars($post['id']); ?>">
       </a>
     </div>
     <div class="desc">

@@ -48,7 +48,7 @@ FROM posts INNER JOIN tags ON (tags.post_id = posts.id) WHERE posts.id = " . $_G
 
 <body>
   <?php include 'includes/header.php'; ?>
-  <main>
+  <main id="post_details">
     <?php if ($logged_in) {
       if ($is_admin) {
         include 'includes/delete_post.php';

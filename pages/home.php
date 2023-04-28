@@ -36,12 +36,14 @@ $posts = exec_sql_query(
   <main>
     <?php include 'includes/sidebar.php'; ?>
     <div class="feed">
-      <?php if (isset($tag_param)) { ?>
-        Posts with the tag: <strong><?php echo htmlspecialchars($tag_param) ?></strong>
-        <?php if (count($posts) == 0) { ?>
-          <p>No posts found!</p>
+      <div id="tag-results">
+        <?php if (isset($tag_param)) { ?>
+          Posts with the tag: <strong><?php echo htmlspecialchars($tag_param) ?></strong>
+          <?php if (count($posts) == 0) { ?>
+            <p>No posts found!</p>
+          <?php } ?>
         <?php } ?>
-      <?php } ?>
+      </div>
       <?php include 'includes/posts.php'; ?>
     </div>
 
