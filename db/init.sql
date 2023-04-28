@@ -153,10 +153,11 @@ INSERT INTO
 VALUES
   (
     'mtd64',
-    2023 -03 -03,
+    20230304,
     'Cafe Jennie',
     'Guys I am so hungry. But this INFO 2300 Website must come first!!',
     'CAFE_JENNIE.JPG',
+    -- photo is courtesy of Cornell Store
     'jpg'
   );
 
@@ -165,10 +166,11 @@ INSERT INTO
 VALUES
   (
     'ez455',
-    2023 -03 - 30,
+    20230420,
     'Clark Hall',
     'What? I just saw a person stealing a TV here, lol.',
     'TV_STEALING.JPG',
+    -- Adobe stock, By stock28studio
     'jpg'
   );
 
@@ -177,10 +179,145 @@ INSERT INTO
 VALUES
   (
     'mtd64',
-    2022,
+    20221015,
     'The Bardo',
     "Help, I'm stuck!",
     'the_bardo.jpg',
+    -- “Home & the Underworld,” by Antony Gormley, 1989. Earth, rabbit skin glue, and black pigment on paper. 28 x 38 cm.
+    'jpg'
+  );
+
+INSERT INTO
+  posts (netid, date, location, desc, file_name, file_ext)
+VALUES
+  (
+    'mtd64',
+    20230327,
+    'Feeney Way',
+    'Whoa! Is that The Pres and VP at Dragon Day??',
+    'DDPres_2.JPG',
+    -- Ming DeMers
+    'jpg'
+  );
+
+INSERT INTO
+  posts (netid, date, location, desc, file_name, file_ext)
+VALUES
+  (
+    'ez455',
+    20230324,
+    'Temple of Zeus',
+    "Ugh! I'm just trying to do some work at Zeus!",
+    'Zeus_streaking.JPG',
+    -- Ming DeMers
+    'jpg'
+  );
+
+INSERT INTO
+  posts (netid, date, location, desc, file_name, file_ext)
+VALUES
+  (
+    'mtd64',
+    20230327,
+    'McGraw Tower',
+    "I can see my house from up here! Here's a cool photo of GSH",
+    'mcgraw_gsh.JPG',
+    'jpg'
+  );
+
+INSERT INTO
+  posts (netid, date, location, desc, file_name, file_ext)
+VALUES
+  (
+    'ez455',
+    20230127,
+    'Libe Slope',
+    "Whoa, the slope is so pretty at sunset!",
+    'sunset_at_libe.JPG',
+    'jpg'
+  );
+
+INSERT INTO
+  posts (netid, date, location, desc, file_name, file_ext)
+VALUES
+  (
+    'mtd64',
+    20221212,
+    'Lincoln Hall',
+    "This a cappella concert is pretty good",
+    'a8_concert.JPG',
+    'jpg'
+  );
+
+INSERT INTO
+  posts (netid, date, location, desc, file_name, file_ext)
+VALUES
+  (
+    'ez455',
+    20230126,
+    'Lynah Rink',
+    "go big red!",
+    'mhockey.JPG',
+    'jpg'
+  );
+
+INSERT INTO
+  posts (netid, date, location, desc, file_name, file_ext)
+VALUES
+  (
+    'ez455',
+    20230227,
+    'Ho Plaza',
+    "dang, it's really cold today",
+    'cold_day_campus.JPG',
+    'jpg'
+  );
+
+INSERT INTO
+  posts (netid, date, location, desc, file_name, file_ext)
+VALUES
+  (
+    'mtd64',
+    20230213,
+    'Lindseth Climbing Center',
+    "I love rock climbing! Go rocks!",
+    'lindseth.JPG',
+    'jpg'
+  );
+
+INSERT INTO
+  posts (netid, date, location, desc, file_name, file_ext)
+VALUES
+  (
+    'jjj45',
+    20230123,
+    'Big Red Barn',
+    "Free chocolate going on right now!",
+    'chocolada.JPG',
+    'jpg'
+  );
+
+INSERT INTO
+  posts (netid, date, location, desc, file_name, file_ext)
+VALUES
+  (
+    'mtd64',
+    20230307,
+    'Libe Slope',
+    "Cornell may have cancelled classes over an inch of snow, but at least we get to go sledding!",
+    'mcgraw_gsh.JPG',
+    'jpg'
+  );
+
+INSERT INTO
+  posts (netid, date, location, desc, file_name, file_ext)
+VALUES
+  (
+    'ez455',
+    20230501,
+    'Libe Slope',
+    "Guys! I finally made some friends!",
+    'hammocking.JPG',
     'jpg'
   );
 
@@ -190,7 +327,7 @@ VALUES
   (
     1,
     'ez455',
-    2023 -09 -20,
+    20230920,
     'I am so hungry too. I am going to go get food. I will be back in 5 minutes.'
   );
 
@@ -200,7 +337,7 @@ VALUES
   (
     2,
     'mtd64',
-    2023 -09 -20,
+    20230920,
     "Wasn't me!"
   );
 

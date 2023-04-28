@@ -1,9 +1,14 @@
 <?php
+function format_date($date_string)
+{
+  $date = DateTime::createFromFormat('Ymd', $date_string);
+  return $date->format('M, d, Y');
+}
 foreach ($posts as $post) { ?>
   <div class="card">
     <div class="head">
       <a class="user-link" href="/user?netid=<?php echo htmlspecialchars($post['netid']); ?>"><?php echo htmlspecialchars($post['netid']); ?></a> |
-      <?php echo htmlspecialchars($post['date']); ?> |
+      <?php echo format_date(htmlspecialchars($post['date'])); ?> |
       <?php echo htmlspecialchars($post['location']); ?> |
     </div>
     <div class="photo">
@@ -20,4 +25,3 @@ foreach ($posts as $post) { ?>
     </div>
   </div>
 <?php } ?>
-
