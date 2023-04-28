@@ -194,25 +194,32 @@ main .feed {
   border-radius: 10px;
   padding: 15px;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
-
 }
 
 .user-link {
   color: white;
 }
 
-#post_details {
+#post-details {
   display: flex;
   flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  margin-top: 150px;
 }
 
-#post_details a {
+#post-details a {
   color: black;
 }
 
-#post_details a:visited {
+#post-details a:visited {
   color: black;
 }
+
+.comments {
+  margin-bottom: 150px;
+}
+
 
 .add-post {
   margin: 15px;
@@ -260,9 +267,12 @@ main .feed {
 .details {
   display: flex;
   flex-direction: column;
+  margin-top: 150px;
+  margin-bottom: 150px;
 }
 
 .profile-details {
+
   display: flex;
   flex-direction: column;
   background-color: #a53724;

@@ -48,7 +48,7 @@ FROM posts INNER JOIN tags ON (tags.post_id = posts.id) WHERE posts.id = " . $_G
 
 <body>
   <?php include 'includes/header.php'; ?>
-  <main id="post_details">
+  <main id="post-details">
     <?php if ($logged_in) {
       if ($is_admin) {
         include 'includes/delete_post.php';
@@ -78,11 +78,16 @@ FROM posts INNER JOIN tags ON (tags.post_id = posts.id) WHERE posts.id = " . $_G
       <div class="comments">
         <h3>Comments:</h3>
         <?php
-        foreach ($comments as $comment) { ?>
-          <div class="comment">
-            <a class="user-link" id="user-link-comment" href="/user?netid=<?php echo htmlspecialchars($comment['netid']); ?>"><?php echo htmlspecialchars($comment['netid']); ?></a>) <?php echo htmlspecialchars($comment['comment']); ?>
-          </div>
-        <?php } ?>
+        // if there are no comments, say no comments!
+        if (count($comments) == 0) {
+          echo "<p>No comments yet!</p>";
+        } else {
+          foreach ($comments as $comment) { ?>
+            <div class="comment">
+              <a class="user-link" id="user-link-comment" href="/user?netid=<?php echo htmlspecialchars($comment['netid']); ?>"><?php echo htmlspecialchars($comment['netid']); ?></a>) <?php echo htmlspecialchars($comment['comment']); ?>
+            </div>
+        <?php }
+        } ?>
       </div>
     <?php } else { ?>
       <div class="modal">

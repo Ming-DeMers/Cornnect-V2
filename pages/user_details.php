@@ -25,7 +25,6 @@ if (is_user_logged_in()) {
 </head>
 
 <body>
-
   <?php include 'includes/header.php'; ?><main>
     <?php if ($logged_in) { ?>
       <?php if (count($user) == 0) { ?>
