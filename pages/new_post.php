@@ -141,9 +141,9 @@ if (isset($_POST['add-post'])) {
 </head>
 
 <body>
-  <?php include 'includes/header.php';
-  if ($logged_in) { ?>
-    <main>
+  <?php include 'includes/header.php'; ?>
+  <main>
+    <?php if ($logged_in) { ?>
       <section>
         <div class="add-post">
           <h2>Add new post!</h2>
@@ -178,7 +178,7 @@ if (isset($_POST['add-post'])) {
                 <input id="tag_field" type="text" name="tag">
               </div>
               <div class="add-button">
-                <input type="submit" value="Add post!" name="add-post">
+                <button type="submit" name="add-post">Add post! </button>
               </div>
             </form>
         </div>
@@ -193,15 +193,15 @@ if (isset($_POST['add-post'])) {
         </section>
       </div>
     <?php } ?>
-  <?php } else {
-    echo "<div class='modal'>
-    <h2>Log in to add a post!</h2>";
-    include 'includes/login.php';
-    echo "</div>";
-  } ?>
+  <?php } else { ?>
+    <div class="modal">
+      <h2>Log in to see this user!</h2>
+      <?php include 'includes/login.php'; ?>
+    </div>
+  <?php } ?>
 
-    </main>
-    <?php include 'includes/footer.php'; ?>
+  </main>
+  <?php include 'includes/footer.php'; ?>
 </body>
 
 

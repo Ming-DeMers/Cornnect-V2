@@ -402,7 +402,11 @@ function signup_form($action, $signup_messages)
     } ?>
   </ul>
 
+
+
   <form class="signup" action="<?php echo htmlspecialchars($action) ?>" method="post" novalidate>
+    <h2>Sign up for Cornnect!</h2>
+    <em>Please note this feature does not currently work</em>
     <div class="label-input">
       <label for="name">Name:</label>
       <input id="name" type="text" name="signup_name" value="<?php echo htmlspecialchars($sticky_signup_name); ?>" required />

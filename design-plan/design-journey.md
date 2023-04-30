@@ -47,30 +47,36 @@ Goal 1: View the database
 Goal 2: View the user database
 
 - **Design Ideas and Choices** _How will you meet those goals in your design?_
-  - The database can be searched by users
-  - Consumers can select only certain indviuals to view, by year, major, etc.
-  - They may also sort
+  - The database can be seen by users that are logged in
+  - They will be able to click on a user and see more info
+  - And see the posts that they have made
 - **Rationale & Additional Notes** _Justify your decisions; additional notes._
   - This allows them to find speficic people they are interested in learning more about.
+  - It will help to connect them all together.
 
-Goal 3: View details page about an individual
+Goal 3: View details page about posts
 
 - **Design Ideas and Choices** _How will you meet those goals in your design?_
-  - The details page will show all the information about an individual
-  - It will be accessible from the home page
-  - It will require a user to login, however
+  - The details page will show all the information about a posts, for users that are logged in.
+  - They will be able to see its location, the time it was posted, tags, and comments.
 - **Rationale & Additional Notes** _Justify your decisions; additional notes._
-  - This allows consumers to learn more about an individual, and decide if they want to contact them.
-  - It also maintains privacy for the user hwo is being viewed.
+  - This allows consumers to learn more about a post and interact with others.
 
+Goal 4: Add posts
+
+- **Design Ideas and Choices** _How will you meet those goals in your design?_
+  - Users will be able to add posts to the feed, if they are logged in
+- **Rationale & Additional Notes** _Justify your decisions; additional notes._
+  - This makes sense as social media platforms require users to be able to add posts
+  - They will be able to add images, a descpription, and a location
 
 ### _Consumer_ Audience Device (Milestone 1)
 > How will your _consumer_ audience access this website? From a narrow (phone) or wide (laptop) device?
 > Justify your decision. (1 sentence)
 
-The audience will likely use a narrow device, such as a phone, to access the site.
+The audience will use a wide device, such as a desktop, to access the site.
 
-This is because it is a social media platform, and people are more likely to use their phones to access social media.
+This is because anyone can have access to a desktop as a Cornell student, by going to the library. However, not everyone may use a smart phone.
 
 ### _Consumer_ Persona (Milestone 1)
 > Use the goals you identified above to develop a persona of your site's _consumer_ audience.
@@ -109,30 +115,29 @@ _Ezra Cornell (absolutely not a real person, absolutely no relation to our estee
 > Briefly explain your site's _administrator_ audience. Your audience should be specific, but not arbitrarily specific. (1 sentence)
 > Justify why this audience is a **cohesive** group. (1-2 sentences)
 
-The site will be administered by the Cornell IT department, and by Ming DeMers. Also by Calvin Smith, because he asked.
+The site will be administered by the Cornell IT department, and by Ming DeMers. ~~Also by Calvin Smith, because he asked.~~
 
-This is cohesive as it makes sense that only IT individuals (and Ming, and Calvin) would be able to access the database, and mess around with the site. We wouldn't want just anyone (except Ming and Calvin) to be able to access the database, and mess around with the site, now would we?
+This is cohesive as it makes sense that only IT individuals (and Ming ~~and Calvin~~) would be able to access the database, and mess around with the site. We wouldn't want just anyone (except Ming ~~and Calvin~~) to be able to access the database, and mess around with the site, now would we?
 
 ### _Administrator_ Audience Goals (Milestone 1)
 > Document your _administrator_ audience's goals for using this catalog website.
 > List each goal below. There is no specific number of goals required for this, but you need enough to do the job (Hint: It's more than 1. But probably not more than 3.)
 > **Hint:** Users will be able to view all entries in the catalog and insert new entries into the catalog. The audience's goals should probably relate to these activities.
 
-Goal 1: Manipulate the Database
+Goal 1: Delete the posts in the database
 
 - **Design Ideas and Choices** _How will you meet those goals in your design?_
-  - The database will be accessible to the IT department, and to Ming DeMers, and to Calvin Smith
-  - They will be able to add, modify, and delete entries
+  - The database will be accessible to the IT department, and to Ming DeMers ~~, and to Calvin Smith~~
+  - They will be able to add and delete posts
 - **Rationale & Additional Notes** _Justify your decisions; additional notes._
   - This allows anyone to request an account, to be added to the database, and to be able to modify their own information
 
-Goal 2: Add image to the database
+Goal 2: Add posts
 
 - **Design Ideas and Choices** _How will you meet those goals in your design?_
-  - It is important that the database can store images
-  - Admins will be able to add images, and modify them
+  - Admins will be able to add posts, too
 - **Rationale & Additional Notes** _Justify your decisions; additional notes._
-  - We wouldn't want random images to be store on this site, so we need to make sure that only admins can add images
+  - They are users too! They are allowed to add posts as usual.
 
 ### _Administrator_ Persona (Milestone 1)
 > Use the goals you identified above to develop a persona of your site's _administrator_ audience.
@@ -178,7 +183,8 @@ Johnny John Johnston
 posts db:
 
 - netid
-- image
+- file_name
+- file_ext
 - date
 - location
 - description
@@ -192,7 +198,7 @@ users db:
 - Clubs/Activities
 - Other Interests
 - bio
-- Image
+- password
 
 comments db:
 
@@ -201,8 +207,33 @@ comments db:
 - comment
 - date
 
+groups db:
 
-This allows Ezra to find other users who have similar interests, and who are in the same year, and who are in the same major, and who are in the same clubs/activities, and who are in the same location. On the other hand, Johnny can easily manage the database, and add, modify, and delete entries, and add images to the database.
+- name
+
+sessions db:
+
+- user_id
+- netid
+- session
+- last_login
+
+tags db:
+
+- post_id
+- tag
+
+user_groups db:
+
+- netid
+- group_id
+
+
+The posts, users, comments, and tags db allows Ezra to find other users who have similar interests, and who are in the same year, and who are in the same major, and who are in the same clubs/activities, and who are in the same location. She can view other peoples posts, see their comments, how their tagged, and the location. If she is logged in, she can also add her own posts and interact with each other, as a social media platform.
+
+On the other hand, Johnny, the admin, can easily manage the database, by choosing to delete posts, as well as everything else a base user can.
+
+The general public can only view the home page, and the database, but they cannot interact with it, unless they are logged in. They can't post, see users, post details, etc.
 
 
 ### Site Design (Milestone 1)
@@ -232,10 +263,31 @@ Upon clicking a person,  Ezra or Johnny will be taken to the details page, where
 ![Alt text](404_page.png)
 if the Ezra or Johnny tries to access a page that doesn't exist, they will be taken to the 404 page, where they can be redirected to the home page.
 
+## Some pages were changed, this is the new design
+In general, each page has the same header and footer, which allow for easy navigation.
+
+![Alt text](new_home.JPG)
+This new home page allows viewing of the posts database, and allows users to search for posts. A user can click on any post to view more information about it, or click a user to learn more about them.
+
+![Alt text](new_login.JPG)
+Only some features are allowed for users that are logged in, so they are often prompted to login. This is the login page that shows up if a user is not logged in. They are also given the option to sign up (this feature does not work)
+
+![Alt text](new_post_details.JPG)
+If a user that's logged in wants to see more about a post, they can. They can see the location, the date, the description, and the comments, and tags. They can click on a tag to see more posts with that tag, or a comment, to see the user.
+
+![Alt text](new_new_post.JPG)
+If a user that's logged in wants to add a post, they can. They can add an image, a description, and a location. They can also add tags which are comma-seperated.
+
+![Alt text](new_profile.JPG)
+Logged in users can see their own profile, which is automatically detected who they are. They can see their own info, image, and their own posts.
+
+![Alt text](new_users.JPG)
+Users that are logged in can see all the users in cornnect, and click on an individual to see more about them. They can see their bio, their image, and their posts.
+
 ### Catalog Design Patterns (Milestone 1)
 > Explain how you used design patterns in your site's design. (1-2 sentences)
 
-I used a multi-page designt pattern, where the user can navigate between different pages. I also used a search bar, where the user can search for people by name. I also used a filter, where the user can filter people by year, major, clubs/activities, and location. I also used a login button, where the user can login to the site. I also used a 404 page, where the user can be redirected to the home page, if they try to access a page that doesn't exist.
+I used a multi-page design pattern, where the user can navigate between different pages. I also used a search bar, where the user can search for posts by tag. I also used a filter, where the user can filter posts tag, and order them. I also used a login button, where the user can login to the site. I also used a 404 page, where the user can be redirected to the home page, if they try to access a page that doesn't exist. A number of features are only available to users that are logged in, such as adding posts, and viewing other users.
 
 ## Implementation Plan (Milestone 1, Milestone 2, Milestone 3, Final Submission)
 
@@ -248,82 +300,204 @@ Posts:
 
 - id: INTEGER {PK, AI, NN, U},
 - netid: STRING {NN}
-- image: STRING {NN}
-- likes: INTEGER {NN}
-- date: DATE {NN}
+- file_name: STRING {NN}
+- file_ext: STRING {NN}
+- date: DATE {NN I}
 - location: STRING {}
 - description: STRING {}
 
-Details:
+Comments:
 
 - id: INTEGER {PK, AI, NN, U},
-- netid: STRING {NN}
-- post_fk: STRING {NN}
+- netid: TEXT {NN} (refs users.netid),
+- post_id: INTEGER {NN} (refs posts.id),
 - comment: STRING {NN}
+
+Groups:
+
+- id: INTEGER {PK, AI, NN, U},
+- name: STRING {NN}
+
+Sessions:
+
+- id: INTEGER {PK, AI, NN, U},
+- user_id: INTEGER {NN} (refs users.id),
+- netid: TEXT {NN},
+- session: TEXT {NN},
+- last_login: DATE {NN}
+
+Tags:
+
+- id: INTEGER {PK, AI, NN, U},
+- post_id: INTEGER {NN} (refs posts.id),
+- tag: TEXT {NN}
+
+User_groups:
+
+- id: INTEGER {PK, AI, NN, U},
+- netid: TEXT {NN} (refs users.netid),
+- group_id: INTEGER {NN} (refs groups.id)
 
 Users:
 
 - id: INTEGER {PK, AI, NN, U},
-- netid: STRING {NN, U}
-- name: STRING {NN}
-- year: INTEGER {NN}
-- major: STRING {NN}
-- clubs: STRING {}
-- interests: STRING {}
-- location: STRING {}
-- image: STRING {}
+- name: STRING {NN},
+- netid: TEXT {NN},
+- year: INTEGER {NN},
+- major: TEXT {NN},
+- clubs: TEXT {},
+- interests: TEXT {},
+- bio: TEXT {},
+- password: TEXT {NN} (hashed)
+
 
 ### Database Query Plan (Milestone 1, Milestone 2, Milestone 3, Final Submission)
 > Plan _all_ of your database queries.
 > You may use natural language, pseudocode, or SQL.
 
+#### Home page query
+
+- Allows for ordering of databast, filtering by tag.
+
 ```
-$result = exec_sql_query(
+$tag_param = $_GET['tag'] ?? NULL;
+$select_clause = "SELECT * FROM posts";
+$operator = '?';
+
+if ($tag_param != NULL) {
+  $select_clause = "SELECT *, posts.id AS id, tags.tag AS 'tag' FROM posts INNER JOIN tags ON (tags.post_id = posts.id) WHERE tags.tag = " . "'" . $tag_param . "'";
+}
+
+if ($_GET['order'] == 'old') {
+  $order_clause = "ORDER BY date ASC";
+} else {
+  $order_clause = "ORDER BY date DESC";
+}
+
+$sql_query = $select_clause . " " . $order_clause . ';';
+
+$posts = exec_sql_query(
   $db,
-  "SELECT * FROM posts
-  FROM comments INNER JOIN posts ON (posts.id = comments.post_id) ORDER BY post_date DESC
-
-);
+  $sql_query
+)->fetchAll();
 ```
 
+Post details:
+
+- Only shows if logged in
+- Also shows comments and tags
+
 ```
-$result = exec_sql_query(
+
+if (is_user_logged_in()) {
+  $logged_in = true;
+  $sql_select_post_query = "SELECT * FROM posts WHERE posts.id = " . $_GET['id'];
+  $sql_select_tags_query = "SELECT posts.id AS id, tags.tag AS 'tag'
+FROM posts INNER JOIN tags ON (tags.post_id = posts.id) WHERE posts.id = " . $_GET['id'];
+  $sql_select_comments_query = "SELECT * FROM comments WHERE comments.post_id = " . $_GET['id'];
+
+  $post = exec_sql_query(
+    $db,
+    $sql_select_post_query,
+  )->fetchAll();
+
+  $tags = exec_sql_query(
+    $db,
+    $sql_select_tags_query,
+  )->fetchAll();
+
+  $comments = exec_sql_query(
+    $db,
+    $sql_select_comments_query,
+  )->fetchAll();
+}
+```
+
+Users:
+
+- Show all users, only if user is logged in
+
+```
+if (is_user_logged_in()) {
+  $logged_in = true;
+  if (isset($_GET['netid'])) {
+    $users = exec_sql_query(
+      $db,
+      "SELECT * FROM users WHERE users.id = " . $_GET['netid'] . ";"
+    )->fetchAll();
+  } else {
+    $users = exec_sql_query(
+      $db,
+      "SELECT * FROM users;"
+    )->fetchAll();
+  }
+}
+```
+
+User detail:
+
+- Show user details, only if user is logged in
+
+```
+if (is_user_logged_in()) {
+  $logged_in = true;
+  $user = exec_sql_query(
+    $db,
+    "SELECT * FROM users WHERE users.netid = " . "'" . $_GET['netid'] . "'" . ";"
+  )->fetchAll();
+
+  $posts = exec_sql_query(
+    $db,
+    "SELECT * FROM posts WHERE posts.netid = " . "'" . $_GET['netid'] . "'" . ";"
+  )->fetchAll();
+}
+```
+
+Sidebar query:
+
+- Show all tags for filtering in the sidebar of the homepage
+
+```
+$tags = exec_sql_query(
   $db,
-  "SELECT * FROM posts;"
-);
+  "SELECT * FROM tags"
+)->fetchAll();
 ```
 
+### User details
 ## Complete & Polished Website (Final Submission)
 
 ### Accessibility Audit (Final Submission)
 > Tell us what issues you discovered during your accessibility audit.
 > What do you do to improve the accessibility of your site?
 
-TODO: audit fixes
+- There were a number of form label issues that were fixed.
+- Some contrast issues were fixed by changing the colors or form inputs
 
 
 ### Self-Reflection (Final Submission)
 > Reflect on what you learned during this assignment. How have you improved from Projects 1 and 2?
 
-TODO: reflection
+I learned a lot on how to mnaiuplate and display databases. Moreover, how to get databases to work together to show many different types of information. I also learned how to use PHP to make a website more dynamic, and how to use PHP to make a website more secure. I learned about user controls and how to allow for adding and removing from a database.
 
+My projects have improved as project 3 is a much more encompassing and whole experience. While there are some features I hope to add (user sign up, liking posts, commenting on posts, and editing posts), I am very happy with the progress I have made. I am also very happy with the design of the website, and how it looks. I think it is very clean and easy to use. The color scheme is not serious, but I've chosen to stick with it.
 
 > Take some time here to reflect on how much you've learned since you started this class. It's often easy to ignore our own progress. Take a moment and think about your accomplishments in this class. Hopefully you'll recognize that you've accomplished a lot and that you should be very proud of those accomplishments! (1-3 sentences)
 
-TODO: reflection
+I am proud of the website I've created and the progress I've made. I am proud of the design of the website, and how it looks. I think its cool that I made a database, and how it works. I am proud of the PHP, how it works with partials, and how all the pages query in different ways. I worked on the security of the website, as well as ensuring accessibility. This class has helped me to make modern web pages that we see everyday.
 
 
 ### Collaborators (Final Submission)
 > List any persons you collaborated with on this project.
 
-TODO: list your collaborators
+None.
 
 
 ### Reference Resources (Final Submission)
 > Please cite any external resources you referenced in the creation of your project.
 > (i.e. W3Schools, StackOverflow, Mozilla, etc.)
 
-TODO: list reference resources
+W3Schools, PHP documentation, Mozailla Reference.
 
 
 ### Grading: User Accounts (Final Submission)
@@ -332,13 +506,13 @@ TODO: list reference resources
 
 **Administrator User:**
 
-- Username: TODO: username
-- Password: TODO: password
+- Username: jjj45
+- Password: monkey
 
 **Consumer User:**
 
-- Username: TODO: username
-- Password: TODO: password
+- Username: mtd64
+- Password: monkey
 
 **Note:** Not all websites will support consumer log in. If your website doesn't, say so.
 
@@ -351,25 +525,30 @@ TODO: list reference resources
 
 _View all entries:_
 
-1. TODO: instructions
-2.
+1. All entries are shown on the home page. There is nothing else required. Simply scroll.
 
 _View all entries for a tag:_
 
-1. TODO: instructions
-2.
+1. On the sidebar, click on a tag. Most tags only have one post.
+2. "Libe Slope" (towards the bottom) has three posts.
+3. You may also search by tag, in the search bar.
 
 _View a single entry's details:_
 
-1. TODO: instructions
-2.
+1. Click on any post, either the image or "more details"
+2. You must be logged in. You will be prompted to login if you are not.
+3. Post details can be done anywhere a post is shown. For example, the posts in a user's profile.
 
 _How to insert and upload a new entry:_
 
-1. TODO: instructions
-2.
+1. Click on "Add Post" in the navigation bar
+2. If not logged in, sign in either as a consumer or admin
+3. Fill out the form, and click submit
+4. Only jpgs under 1mb are allowed. Location is requried, description and tags are optional.
 
 _How to delete an entry:_
 
-1. TODO: instructions
-2.
+1. Login as an admin. "ADMIN MODE ENABLED" will display in the navbar
+2. Click on the post you want to delete
+3. A button that says "delete post permanantly" will appear
+4. It will confirm that you deleted a post.

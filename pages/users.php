@@ -64,8 +64,7 @@ if (is_user_logged_in()) {
     } ?>
       </div>
   </main>
-
-
+  <?php include 'includes/footer.php' ?>
 </body>
 
 </html>

@@ -17,6 +17,34 @@ a:visited {
   color: white;
 }
 
+button {
+  color: white;
+  background-color: #a53724;
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 5px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+}
+
+button:hover {
+  background-color: white;
+  color: #a53724;
+  cursor: pointer;
+}
+
+input {
+  border-radius: 5px;
+  background-color: white;
+  border: none;
+  color: black;
+  margin: 5px;
+  padding: 5px;
+  font-weight: bold;
+
+
+}
+
 header {
   display: flex;
   flex-direction: column;
@@ -80,7 +108,7 @@ nav button {
   padding: 5px;
   font-size: 16px;
   font-weight: bold;
-  /* box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5); */
+  box-shadow: 0 0 0px 0 rgba(0, 0, 0, 0);
 }
 
 nav button:hover {
@@ -194,32 +222,25 @@ main .feed {
   border-radius: 10px;
   padding: 15px;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+
 }
 
 .user-link {
   color: white;
 }
 
-#post-details {
+#post_details {
   display: flex;
   flex-direction: column;
-  align-content: center;
-  justify-content: center;
-  margin-top: 150px;
 }
 
-#post-details a {
+#post_details a {
   color: black;
 }
 
-#post-details a:visited {
+#post_details a:visited {
   color: black;
 }
-
-.comments {
-  margin-bottom: 150px;
-}
-
 
 .add-post {
   margin: 15px;
@@ -267,12 +288,9 @@ main .feed {
 .details {
   display: flex;
   flex-direction: column;
-  margin-top: 150px;
-  margin-bottom: 150px;
 }
 
 .profile-details {
-
   display: flex;
   flex-direction: column;
   background-color: #a53724;

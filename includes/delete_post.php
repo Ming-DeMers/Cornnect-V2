@@ -1,5 +1,5 @@
 <?php
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete-post'])) {
   if (unlink("public/uploads/posts/" . $_GET['id'] . ".jpg")) {
     $post_id = $_GET['id'];
     exec_sql_query(
@@ -22,5 +22,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 ?>
 <form method="post">
-  <input type="submit" value="Delete this post permanantly">
+  <button type="submit" name="delete-post">Delete this post permanantly</button>
 </form>

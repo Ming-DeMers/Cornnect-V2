@@ -7,7 +7,6 @@ CREATE TABLE users (
   clubs TEXT,
   interests TEXT,
   bio TEXT,
-  username TEXT NOT NULL UNIQUE,
   password TEXT NOT NULL,
   PRIMARY KEY(id AUTOINCREMENT)
 );
@@ -71,7 +70,6 @@ INSERT INTO
     clubs,
     interests,
     bio,
-    username,
     password
   )
 VALUES
@@ -83,7 +81,6 @@ VALUES
     '',
     'Coding',
     'I am ur admin.',
-    'jjj45',
     '$2y$10$QtCybkpkzh7x5VN11APHned4J8fu78.eFXlyAMmahuAaNcbwZ7FH.'
   );
 
@@ -96,7 +93,6 @@ INSERT INTO
     clubs,
     interests,
     bio,
-    username,
     password
   )
 VALUES
@@ -108,7 +104,6 @@ VALUES
     'CAC',
     'Coding',
     'I made this site lol.',
-    'mtd64',
     '$2y$10$QtCybkpkzh7x5VN11APHned4J8fu78.eFXlyAMmahuAaNcbwZ7FH.'
   );
 
@@ -121,7 +116,6 @@ INSERT INTO
     clubs,
     interests,
     bio,
-    username,
     password
   )
 VALUES
@@ -133,7 +127,6 @@ VALUES
     NULL,
     NULL,
     "I'm the woman, not the founder!",
-    'ez455',
     '$2y$10$QtCybkpkzh7x5VN11APHned4J8fu78.eFXlyAMmahuAaNcbwZ7FH.'
   );
 
